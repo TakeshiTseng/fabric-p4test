@@ -230,6 +230,28 @@ class FabricTest(P4RuntimeTest):
             [self.Exact("fabric_metadata.next_id", next_id_)],
             grp_id)
 
+    def add_acl_eth_type_pkt_in(self, eth_type=0x0806, eth_type_mask=0xffff):
+        self.send_request_add_entry_to_action(
+            "forwarding.acl",
+            [self.Ternary("fabric_metadata.original_ether_type",
+            stringify(eth_type, 2),
+            stringify(eth_type_mask, 2))],
+            "forwarding.duplicate_to_controller", [],
+            DEFAULT_PRIORITY)
+
+    def match_expect_pkt(self, actual_pkt, expect_pkt):
+
+        if str(actual_pkt) != str(expect_pkt):
+            print "========== EXPECTED =========="
+            scapy.packet.ls(expect_pkt)
+            print "--"
+            scapy.utils.hexdump(expect_pkt)
+            print "=============================="
+            print "========== RECEIVED =========="
+            scapy.packet.ls(actual_pkt)
+            scapy.utils.hexdump(actual_pkt)
+            print "=============================="
+            self.fail("Packet received from device does not match expected packet")
 
 class FabricL2UnicastTest(FabricTest):
     @autocleanup
@@ -408,6 +430,47 @@ class PacketOutTest(FabricTest):
             testutils.verify_packet(self, payload, port)
             testutils.verify_no_other_packets(self)
 
+class PacketInArpTest(FabricTest):
+    @autocleanup
+    def runTest(self):
+        arp_eth_type = 0x0806
+        self.add_acl_eth_type_pkt_in(arp_eth_type)
+        arp_req_pkt = testutils.simple_arp_packet(eth_src=HOST1_MAC)
+        testutils.send_packet(self, self.port1, str(arp_req_pkt))
+        msg = self.get_stream_packet("packet")
+
+        if not msg:
+            self.fail("Does not receive any packe-in message")
+        actual_pkt = arp_req_pkt.__class__(msg.packet.payload)
+        self.match_expect_pkt(actual_pkt, arp_req_pkt)
+
+        expected_in_port = stringify(1, 2)
+        actual_in_port = msg.packet.metadata[0].value
+        if actual_in_port != expected_in_port:
+            expected_in_port = '0x' + ''.join([x.encode('hex') for x in expected_in_port])
+            actual_in_port = '0x' + ''.join([x.encode('hex') for x in actual_in_port])
+            self.fail("Extected input port: %s, actual: %s" % (expected_in_port, actual_in_port))
+
+class PacketInArpVlanTest(FabricTest):
+    @autocleanup
+    def runTest(self):
+        arp_eth_type = 0x0806
+        self.add_acl_eth_type_pkt_in(arp_eth_type)
+        arp_req_pkt = testutils.simple_arp_packet(eth_src=HOST1_MAC, vlan_vid=10)
+        testutils.send_packet(self, self.port1, str(arp_req_pkt))
+        msg = self.get_stream_packet("packet")
+
+        if not msg:
+            self.fail("Does not receive any packe-in message")
+        actual_pkt = arp_req_pkt.__class__(msg.packet.payload)
+        self.match_expect_pkt(actual_pkt, arp_req_pkt)
+
+        expected_in_port = stringify(1, 2)
+        actual_in_port = msg.packet.metadata[0].value
+        if actual_in_port != expected_in_port:
+            expected_in_port = '0x' + ''.join([x.encode('hex') for x in expected_in_port])
+            actual_in_port = '0x' + ''.join([x.encode('hex') for x in actual_in_port])
+            self.fail("Extected input port: %s, actual: %s" % (expected_in_port, actual_in_port))
 
 class SpgwTest(FabricTest):
     def setUp(self):
