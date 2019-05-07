@@ -1,0 +1,28 @@
+{
+  "build_date": "Tue Jan 22 21:26:33 2019",
+  "schema_version": "1.5.10",
+  "compiler_version": "8.5.0",
+  "program_name": "fabric-tofino",
+  "learn_quanta": [],
+  "dynamic_hash_calculations": [],
+  "parser": { "ingress": [], "egress": [] },
+  "phv_allocation": [
+    { "ingress": [], "egress": [], "stage_number": 0 },
+    { "ingress": [], "egress": [], "stage_number": 1 },
+    { "ingress": [], "egress": [], "stage_number": 2 },
+    { "ingress": [], "egress": [], "stage_number": 3 },
+    { "ingress": [], "egress": [], "stage_number": 4 },
+    { "ingress": [], "egress": [], "stage_number": 5 },
+    { "ingress": [], "egress": [], "stage_number": 6 },
+    { "ingress": [], "egress": [], "stage_number": 7 },
+    { "ingress": [], "egress": [], "stage_number": 8 },
+    { "ingress": [], "egress": [], "stage_number": 9 },
+    { "ingress": [], "egress": [], "stage_number": 10 },
+    { "ingress": [], "egress": [], "stage_number": 11 }
+  ],
+  "tables": [],
+  "stage_dependency": [],
+  "configuration_cache": [],
+  "run_id": "",
+  "driver_options": { "hash_parity_enabled": false, "high_availability_enabled": true }
+}

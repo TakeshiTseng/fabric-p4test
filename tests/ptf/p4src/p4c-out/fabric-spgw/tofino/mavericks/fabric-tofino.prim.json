@@ -1,0 +1,2854 @@
+{
+  "tables" : [
+    {
+      "name" : "tbl_act",
+      "actions" : [
+        {
+          "name" : "act_0",
+          "primitives" : [
+            {
+              "name" : "ModifyFieldPrimitive",
+              "operation" : "set",
+              "dst" : {
+                "type" : "phv",
+                "name" : "hasExited"
+              },
+              "dst_mask" : {
+                "type" : "immediate",
+                "name" : "1"
+              },
+              "src1" : {
+                "type" : "immediate",
+                "name" : "0"
+              }
+            },
+            {
+              "name" : "RemoveHeaderPrimitive",
+              "dst" : {
+                "type" : "header",
+                "name" : "hdr.gtpu_ipv4.$valid"
+              }
+            },
+            {
+              "name" : "RemoveHeaderPrimitive",
+              "dst" : {
+                "type" : "header",
+                "name" : "hdr.gtpu_udp.$valid"
+              }
+            },
+            {
+              "name" : "ModifyFieldPrimitive",
+              "operation" : "set",
+              "dst" : {
+                "type" : "phv",
+                "name" : "spgw_normalizer_hasReturned"
+              },
+              "dst_mask" : {
+                "type" : "immediate",
+                "name" : "1"
+              },
+              "src1" : {
+                "type" : "immediate",
+                "name" : "0"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name" : "tbl_act_4",
+      "actions" : [
+        {
+          "name" : "act_4",
+          "primitives" : [
+            {
+              "name" : "ModifyFieldPrimitive",
+              "operation" : "set",
+              "dst" : {
+                "type" : "phv",
+                "name" : "ig_intr_md_for_tm.ucast_egress_port"
+              },
+              "dst_mask" : {
+                "type" : "immediate",
+                "name" : "511"
+              },
+              "src1" : {
+                "type" : "phv",
+                "name" : "hdr.packet_out.egress_port"
+              }
+            },
+            {
+              "name" : "ModifyFieldPrimitive",
+              "operation" : "set",
+              "dst" : {
+                "type" : "phv",
+                "name" : "fabric_metadata.is_controller_packet_out"
+              },
+              "dst_mask" : {
+                "type" : "immediate",
+                "name" : "1"
+              },
+              "src1" : {
+                "type" : "immediate",
+                "name" : "1"
+              }
+            },
+            {
+              "name" : "ModifyFieldPrimitive",
+              "operation" : "set",
+              "dst" : {
+                "type" : "phv",
+                "name" : "hasExited"
+              },
+              "dst_mask" : {
+                "type" : "immediate",
+                "name" : "1"
+              },
+              "src1" : {
+                "type" : "immediate",
+                "name" : "1"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name" : "tbl_act_0",
+      "actions" : [
+        {
+          "name" : "act",
+          "primitives" : [
+            {
+              "name" : "ModifyFieldPrimitive",
+              "operation" : "set",
+              "dst" : {
+                "type" : "phv",
+                "name" : "spgw_normalizer_hasReturned"
+              },
+              "dst_mask" : {
+                "type" : "immediate",
+                "name" : "1"
+              },
+              "src1" : {
+                "type" : "immediate",
+                "name" : "1"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name" : "tbl_act_1",
+      "actions" : [
+        {
+          "name" : "act_3",
+          "primitives" : [
+            {
+              "name" : "ModifyFieldPrimitive",
+              "operation" : "set",
+              "dst" : {
+                "type" : "phv",
+                "name" : "hdr.gtpu_ipv4.version"
+              },
+              "dst_mask" : {
+                "type" : "immediate",
+                "name" : "15"
+              },
+              "src1" : {
+                "type" : "phv",
+                "name" : "hdr.ipv4.version"
+              }
+            },
+            {
+              "name" : "ModifyFieldPrimitive",
+              "operation" : "set",
+              "dst" : {
+                "type" : "phv",
+                "name" : "hdr.gtpu_ipv4.ihl"
+              },
+              "dst_mask" : {
+                "type" : "immediate",
+                "name" : "15"
+              },
+              "src1" : {
+                "type" : "phv",
+                "name" : "hdr.ipv4.ihl"
+              }
+            },
+            {
+              "name" : "ModifyFieldPrimitive",
+              "operation" : "set",
+              "dst" : {
+                "type" : "phv",
+                "name" : "hdr.gtpu_ipv4.dscp"
+              },
+              "dst_mask" : {
+                "type" : "immediate",
+                "name" : "63"
+              },
+              "src1" : {
+                "type" : "phv",
+                "name" : "hdr.ipv4.dscp"
+              }
+            },
+            {
+              "name" : "ModifyFieldPrimitive",
+              "operation" : "set",
+              "dst" : {
+                "type" : "phv",
+                "name" : "hdr.gtpu_ipv4.ecn"
+              },
+              "dst_mask" : {
+                "type" : "immediate",
+                "name" : "3"
+              },
+              "src1" : {
+                "type" : "phv",
+                "name" : "hdr.ipv4.ecn"
+              }
+            },
+            {
+              "name" : "ModifyFieldPrimitive",
+              "operation" : "set",
+              "dst" : {
+                "type" : "phv",
+                "name" : "hdr.gtpu_ipv4.total_len"
+              },
+              "dst_mask" : {
+                "type" : "immediate",
+                "name" : "65535"
+              },
+              "src1" : {
+                "type" : "phv",
+                "name" : "hdr.ipv4.total_len"
+              }
+            },
+            {
+              "name" : "ModifyFieldPrimitive",
+              "operation" : "set",
+              "dst" : {
+                "type" : "phv",
+                "name" : "hdr.gtpu_ipv4.identification"
+              },
+              "dst_mask" : {
+                "type" : "immediate",
+                "name" : "65535"
+              },
+              "src1" : {
+                "type" : "phv",
+                "name" : "hdr.ipv4.identification"
+              }
+            },
+            {
+              "name" : "ModifyFieldPrimitive",
+              "operation" : "set",
+              "dst" : {
+                "type" : "phv",
+                "name" : "hdr.gtpu_ipv4.flags"
+              },
+              "dst_mask" : {
+                "type" : "immediate",
+                "name" : "7"
+              },
+              "src1" : {
+                "type" : "phv",
+                "name" : "hdr.ipv4.flags"
+              }
+            },
+            {
+              "name" : "ModifyFieldPrimitive",
+              "operation" : "set",
+              "dst" : {
+                "type" : "phv",
+                "name" : "hdr.gtpu_ipv4.frag_offset"
+              },
+              "dst_mask" : {
+                "type" : "immediate",
+                "name" : "8191"
+              },
+              "src1" : {
+                "type" : "phv",
+                "name" : "hdr.ipv4.frag_offset"
+              }
+            },
+            {
+              "name" : "ModifyFieldPrimitive",
+              "operation" : "set",
+              "dst" : {
+                "type" : "phv",
+                "name" : "hdr.gtpu_ipv4.ttl"
+              },
+              "dst_mask" : {
+                "type" : "immediate",
+                "name" : "255"
+              },
+              "src1" : {
+                "type" : "phv",
+                "name" : "hdr.ipv4.ttl"
+              }
+            },
+            {
+              "name" : "ModifyFieldPrimitive",
+              "operation" : "set",
+              "dst" : {
+                "type" : "phv",
+                "name" : "hdr.gtpu_ipv4.protocol"
+              },
+              "dst_mask" : {
+                "type" : "immediate",
+                "name" : "255"
+              },
+              "src1" : {
+                "type" : "phv",
+                "name" : "hdr.ipv4.protocol"
+              }
+            },
+            {
+              "name" : "ModifyFieldPrimitive",
+              "operation" : "set",
+              "dst" : {
+                "type" : "phv",
+                "name" : "hdr.gtpu_ipv4.hdr_checksum"
+              },
+              "dst_mask" : {
+                "type" : "immediate",
+                "name" : "65535"
+              },
+              "src1" : {
+                "type" : "phv",
+                "name" : "hdr.ipv4.hdr_checksum"
+              }
+            },
+            {
+              "name" : "ModifyFieldPrimitive",
+              "operation" : "set",
+              "dst" : {
+                "type" : "phv",
+                "name" : "hdr.gtpu_ipv4.src_addr"
+              },
+              "dst_mask" : {
+                "type" : "immediate",
+                "name" : "0"
+              },
+              "src1" : {
+                "type" : "phv",
+                "name" : "hdr.ipv4.src_addr"
+              }
+            },
+            {
+              "name" : "ModifyFieldPrimitive",
+              "operation" : "set",
+              "dst" : {
+                "type" : "phv",
+                "name" : "hdr.gtpu_ipv4.dst_addr"
+              },
+              "dst_mask" : {
+                "type" : "immediate",
+                "name" : "0"
+              },
+              "src1" : {
+                "type" : "phv",
+                "name" : "hdr.ipv4.dst_addr"
+              }
+            },
+            {
+              "name" : "ModifyFieldPrimitive",
+              "operation" : "set",
+              "dst" : {
+                "type" : "phv",
+                "name" : "hdr.gtpu_ipv4.$valid"
+              },
+              "dst_mask" : {
+                "type" : "immediate",
+                "name" : "1"
+              },
+              "src1" : {
+                "type" : "phv",
+                "name" : "hdr.ipv4.$valid"
+              }
+            },
+            {
+              "name" : "ModifyFieldPrimitive",
+              "operation" : "set",
+              "dst" : {
+                "type" : "phv",
+                "name" : "hdr.ipv4.version"
+              },
+              "dst_mask" : {
+                "type" : "immediate",
+                "name" : "15"
+              },
+              "src1" : {
+                "type" : "phv",
+                "name" : "hdr.inner_ipv4.version"
+              }
+            },
+            {
+              "name" : "ModifyFieldPrimitive",
+              "operation" : "set",
+              "dst" : {
+                "type" : "phv",
+                "name" : "hdr.ipv4.ihl"
+              },
+              "dst_mask" : {
+                "type" : "immediate",
+                "name" : "15"
+              },
+              "src1" : {
+                "type" : "phv",
+                "name" : "hdr.inner_ipv4.ihl"
+              }
+            },
+            {
+              "name" : "ModifyFieldPrimitive",
+              "operation" : "set",
+              "dst" : {
+                "type" : "phv",
+                "name" : "hdr.ipv4.dscp"
+              },
+              "dst_mask" : {
+                "type" : "immediate",
+                "name" : "63"
+              },
+              "src1" : {
+                "type" : "phv",
+                "name" : "hdr.inner_ipv4.dscp"
+              }
+            },
+            {
+              "name" : "ModifyFieldPrimitive",
+              "operation" : "set",
+              "dst" : {
+                "type" : "phv",
+                "name" : "hdr.ipv4.ecn"
+              },
+              "dst_mask" : {
+                "type" : "immediate",
+                "name" : "3"
+              },
+              "src1" : {
+                "type" : "phv",
+                "name" : "hdr.inner_ipv4.ecn"
+              }
+            },
+            {
+              "name" : "ModifyFieldPrimitive",
+              "operation" : "set",
+              "dst" : {
+                "type" : "phv",
+                "name" : "hdr.ipv4.total_len"
+              },
+              "dst_mask" : {
+                "type" : "immediate",
+                "name" : "65535"
+              },
+              "src1" : {
+                "type" : "phv",
+                "name" : "hdr.inner_ipv4.total_len"
+              }
+            },
+            {
+              "name" : "ModifyFieldPrimitive",
+              "operation" : "set",
+              "dst" : {
+                "type" : "phv",
+                "name" : "hdr.ipv4.identification"
+              },
+              "dst_mask" : {
+                "type" : "immediate",
+                "name" : "65535"
+              },
+              "src1" : {
+                "type" : "phv",
+                "name" : "hdr.inner_ipv4.identification"
+              }
+            },
+            {
+              "name" : "ModifyFieldPrimitive",
+              "operation" : "set",
+              "dst" : {
+                "type" : "phv",
+                "name" : "hdr.ipv4.flags"
+              },
+              "dst_mask" : {
+                "type" : "immediate",
+                "name" : "7"
+              },
+              "src1" : {
+                "type" : "phv",
+                "name" : "hdr.inner_ipv4.flags"
+              }
+            },
+            {
+              "name" : "ModifyFieldPrimitive",
+              "operation" : "set",
+              "dst" : {
+                "type" : "phv",
+                "name" : "hdr.ipv4.frag_offset"
+              },
+              "dst_mask" : {
+                "type" : "immediate",
+                "name" : "8191"
+              },
+              "src1" : {
+                "type" : "phv",
+                "name" : "hdr.inner_ipv4.frag_offset"
+              }
+            },
+            {
+              "name" : "ModifyFieldPrimitive",
+              "operation" : "set",
+              "dst" : {
+                "type" : "phv",
+                "name" : "hdr.ipv4.ttl"
+              },
+              "dst_mask" : {
+                "type" : "immediate",
+                "name" : "255"
+              },
+              "src1" : {
+                "type" : "phv",
+                "name" : "hdr.inner_ipv4.ttl"
+              }
+            },
+            {
+              "name" : "ModifyFieldPrimitive",
+              "operation" : "set",
+              "dst" : {
+                "type" : "phv",
+                "name" : "hdr.ipv4.protocol"
+              },
+              "dst_mask" : {
+                "type" : "immediate",
+                "name" : "255"
+              },
+              "src1" : {
+                "type" : "phv",
+                "name" : "hdr.inner_ipv4.protocol"
+              }
+            },
+            {
+              "name" : "ModifyFieldPrimitive",
+              "operation" : "set",
+              "dst" : {
+                "type" : "phv",
+                "name" : "hdr.ipv4.hdr_checksum"
+              },
+              "dst_mask" : {
+                "type" : "immediate",
+                "name" : "65535"
+              },
+              "src1" : {
+                "type" : "phv",
+                "name" : "hdr.inner_ipv4.hdr_checksum"
+              }
+            },
+            {
+              "name" : "ModifyFieldPrimitive",
+              "operation" : "set",
+              "dst" : {
+                "type" : "phv",
+                "name" : "hdr.ipv4.src_addr"
+              },
+              "dst_mask" : {
+                "type" : "immediate",
+                "name" : "0"
+              },
+              "src1" : {
+                "type" : "phv",
+                "name" : "hdr.inner_ipv4.src_addr"
+              }
+            },
+            {
+              "name" : "ModifyFieldPrimitive",
+              "operation" : "set",
+              "dst" : {
+                "type" : "phv",
+                "name" : "hdr.ipv4.dst_addr"
+              },
+              "dst_mask" : {
+                "type" : "immediate",
+                "name" : "0"
+              },
+              "src1" : {
+                "type" : "phv",
+                "name" : "hdr.inner_ipv4.dst_addr"
+              }
+            },
+            {
+              "name" : "ModifyFieldPrimitive",
+              "operation" : "set",
+              "dst" : {
+                "type" : "phv",
+                "name" : "hdr.ipv4.$valid"
+              },
+              "dst_mask" : {
+                "type" : "immediate",
+                "name" : "1"
+              },
+              "src1" : {
+                "type" : "phv",
+                "name" : "hdr.inner_ipv4.$valid"
+              }
+            },
+            {
+              "name" : "ModifyFieldPrimitive",
+              "operation" : "set",
+              "dst" : {
+                "type" : "phv",
+                "name" : "hdr.gtpu_udp.sport"
+              },
+              "dst_mask" : {
+                "type" : "immediate",
+                "name" : "65535"
+              },
+              "src1" : {
+                "type" : "phv",
+                "name" : "hdr.udp.sport"
+              }
+            },
+            {
+              "name" : "ModifyFieldPrimitive",
+              "operation" : "set",
+              "dst" : {
+                "type" : "phv",
+                "name" : "hdr.gtpu_udp.dport"
+              },
+              "dst_mask" : {
+                "type" : "immediate",
+                "name" : "65535"
+              },
+              "src1" : {
+                "type" : "phv",
+                "name" : "hdr.udp.dport"
+              }
+            },
+            {
+              "name" : "ModifyFieldPrimitive",
+              "operation" : "set",
+              "dst" : {
+                "type" : "phv",
+                "name" : "hdr.gtpu_udp.len"
+              },
+              "dst_mask" : {
+                "type" : "immediate",
+                "name" : "65535"
+              },
+              "src1" : {
+                "type" : "phv",
+                "name" : "hdr.udp.len"
+              }
+            },
+            {
+              "name" : "ModifyFieldPrimitive",
+              "operation" : "set",
+              "dst" : {
+                "type" : "phv",
+                "name" : "hdr.gtpu_udp.checksum"
+              },
+              "dst_mask" : {
+                "type" : "immediate",
+                "name" : "65535"
+              },
+              "src1" : {
+                "type" : "phv",
+                "name" : "hdr.udp.checksum"
+              }
+            },
+            {
+              "name" : "ModifyFieldPrimitive",
+              "operation" : "set",
+              "dst" : {
+                "type" : "phv",
+                "name" : "hdr.gtpu_udp.$valid"
+              },
+              "dst_mask" : {
+                "type" : "immediate",
+                "name" : "1"
+              },
+              "src1" : {
+                "type" : "phv",
+                "name" : "hdr.udp.$valid"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name" : "tbl_act_3",
+      "actions" : [
+        {
+          "name" : "act_2",
+          "primitives" : [
+            {
+              "name" : "RemoveHeaderPrimitive",
+              "dst" : {
+                "type" : "header",
+                "name" : "hdr.udp.$valid"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name" : "tbl_act_2",
+      "actions" : [
+        {
+          "name" : "act_1",
+          "primitives" : [
+            {
+              "name" : "ModifyFieldPrimitive",
+              "operation" : "set",
+              "dst" : {
+                "type" : "phv",
+                "name" : "hdr.udp.sport"
+              },
+              "dst_mask" : {
+                "type" : "immediate",
+                "name" : "65535"
+              },
+              "src1" : {
+                "type" : "phv",
+                "name" : "hdr.inner_udp.sport"
+              }
+            },
+            {
+              "name" : "ModifyFieldPrimitive",
+              "operation" : "set",
+              "dst" : {
+                "type" : "phv",
+                "name" : "hdr.udp.dport"
+              },
+              "dst_mask" : {
+                "type" : "immediate",
+                "name" : "65535"
+              },
+              "src1" : {
+                "type" : "phv",
+                "name" : "hdr.inner_udp.dport"
+              }
+            },
+            {
+              "name" : "ModifyFieldPrimitive",
+              "operation" : "set",
+              "dst" : {
+                "type" : "phv",
+                "name" : "hdr.udp.len"
+              },
+              "dst_mask" : {
+                "type" : "immediate",
+                "name" : "65535"
+              },
+              "src1" : {
+                "type" : "phv",
+                "name" : "hdr.inner_udp.len"
+              }
+            },
+            {
+              "name" : "ModifyFieldPrimitive",
+              "operation" : "set",
+              "dst" : {
+                "type" : "phv",
+                "name" : "hdr.udp.checksum"
+              },
+              "dst_mask" : {
+                "type" : "immediate",
+                "name" : "65535"
+              },
+              "src1" : {
+                "type" : "phv",
+                "name" : "hdr.inner_udp.checksum"
+              }
+            },
+            {
+              "name" : "ModifyFieldPrimitive",
+              "operation" : "set",
+              "dst" : {
+                "type" : "phv",
+                "name" : "hdr.udp.$valid"
+              },
+              "dst_mask" : {
+                "type" : "immediate",
+                "name" : "1"
+              },
+              "src1" : {
+                "type" : "phv",
+                "name" : "hdr.inner_udp.$valid"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name" : "tbl_act_13",
+      "actions" : [
+        {
+          "name" : "act_13",
+          "primitives" : []
+        }
+      ]
+    },
+    {
+      "name" : "tbl_act_5",
+      "actions" : [
+        {
+          "name" : "act_5",
+          "primitives" : [
+            {
+              "name" : "ModifyFieldPrimitive",
+              "operation" : "set",
+              "dst" : {
+                "type" : "phv",
+                "name" : "fabric_metadata.eth_type"
+              },
+              "dst_mask" : {
+                "type" : "immediate",
+                "name" : "65535"
+              },
+              "src1" : {
+                "type" : "phv",
+                "name" : "hdr.vlan_tag.eth_type"
+              }
+            },
+            {
+              "name" : "ModifyFieldPrimitive",
+              "operation" : "set",
+              "dst" : {
+                "type" : "phv",
+                "name" : "fabric_metadata.vlan_id"
+              },
+              "dst_mask" : {
+                "type" : "immediate",
+                "name" : "4095"
+              },
+              "src1" : {
+                "type" : "phv",
+                "name" : "hdr.vlan_tag.vlan_id"
+              }
+            },
+            {
+              "name" : "ModifyFieldPrimitive",
+              "operation" : "set",
+              "dst" : {
+                "type" : "phv",
+                "name" : "fabric_metadata.vlan_pri"
+              },
+              "dst_mask" : {
+                "type" : "immediate",
+                "name" : "7"
+              },
+              "src1" : {
+                "type" : "phv",
+                "name" : "hdr.vlan_tag.pri"
+              }
+            },
+            {
+              "name" : "ModifyFieldPrimitive",
+              "operation" : "set",
+              "dst" : {
+                "type" : "phv",
+                "name" : "fabric_metadata.vlan_cfi"
+              },
+              "dst_mask" : {
+                "type" : "immediate",
+                "name" : "1"
+              },
+              "src1" : {
+                "type" : "phv",
+                "name" : "hdr.vlan_tag.cfi"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name" : "tbl_act_7",
+      "actions" : [
+        {
+          "name" : "act_11",
+          "primitives" : [
+            {
+              "name" : "ModifyFieldPrimitive",
+              "operation" : "set",
+              "dst" : {
+                "type" : "phv",
+                "name" : "spgw_ingress_hasReturned"
+              },
+              "dst_mask" : {
+                "type" : "immediate",
+                "name" : "1"
+              },
+              "src1" : {
+                "type" : "immediate",
+                "name" : "0"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name" : "tbl_act_6",
+      "actions" : [
+        {
+          "name" : "act_6",
+          "primitives" : [
+            {
+              "name" : "ModifyFieldPrimitive",
+              "operation" : "set",
+              "dst" : {
+                "type" : "phv",
+                "name" : "fabric_metadata.mpls_ttl"
+              },
+              "dst_mask" : {
+                "type" : "immediate",
+                "name" : "255"
+              },
+              "src1" : {
+                "type" : "immediate",
+                "name" : "65"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name" : "FabricIngress.filtering.ingress_port_vlan",
+      "actions" : [
+        {
+          "name" : "FabricIngress.filtering.deny",
+          "primitives" : [
+            {
+              "name" : "CountPrimitive",
+              "dst" : {
+                "type" : "counter",
+                "name" : "FabricIngress.filtering.ingress_port_vlan_counter"
+              }
+            },
+            {
+              "name" : "ModifyFieldPrimitive",
+              "operation" : "set",
+              "dst" : {
+                "type" : "phv",
+                "name" : "fabric_metadata.skip_forwarding"
+              },
+              "dst_mask" : {
+                "type" : "immediate",
+                "name" : "1"
+              },
+              "src1" : {
+                "type" : "immediate",
+                "name" : "1"
+              }
+            },
+            {
+              "name" : "ModifyFieldPrimitive",
+              "operation" : "set",
+              "dst" : {
+                "type" : "phv",
+                "name" : "fabric_metadata.skip_next"
+              },
+              "dst_mask" : {
+                "type" : "immediate",
+                "name" : "1"
+              },
+              "src1" : {
+                "type" : "immediate",
+                "name" : "1"
+              }
+            }
+          ]
+        },
+        {
+          "name" : "FabricIngress.filtering.permit",
+          "primitives" : [
+            {
+              "name" : "CountPrimitive",
+              "dst" : {
+                "type" : "counter",
+                "name" : "FabricIngress.filtering.ingress_port_vlan_counter"
+              }
+            }
+          ]
+        },
+        {
+          "name" : "FabricIngress.filtering.permit_with_internal_vlan",
+          "primitives" : [
+            {
+              "name" : "CountPrimitive",
+              "dst" : {
+                "type" : "counter",
+                "name" : "FabricIngress.filtering.ingress_port_vlan_counter"
+              }
+            },
+            {
+              "name" : "ModifyFieldPrimitive",
+              "operation" : "set",
+              "dst" : {
+                "type" : "phv",
+                "name" : "fabric_metadata.vlan_id"
+              },
+              "dst_mask" : {
+                "type" : "immediate",
+                "name" : "4095"
+              },
+              "src1" : {
+                "type" : "action_param",
+                "name" : "vlan_id"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name" : "FabricIngress.filtering.fwd_classifier",
+      "actions" : [
+        {
+          "name" : "FabricIngress.filtering.set_forwarding_type",
+          "primitives" : [
+            {
+              "name" : "CountPrimitive",
+              "dst" : {
+                "type" : "counter",
+                "name" : "FabricIngress.filtering.fwd_classifier_counter"
+              }
+            },
+            {
+              "name" : "ModifyFieldPrimitive",
+              "operation" : "set",
+              "dst" : {
+                "type" : "phv",
+                "name" : "fabric_metadata.fwd_type"
+              },
+              "dst_mask" : {
+                "type" : "immediate",
+                "name" : "7"
+              },
+              "src1" : {
+                "type" : "action_param",
+                "name" : "fwd_type"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name" : "tbl_act_9",
+      "actions" : [
+        {
+          "name" : "act_8",
+          "primitives" : [
+            {
+              "name" : "ModifyFieldPrimitive",
+              "operation" : "set",
+              "dst" : {
+                "type" : "phv",
+                "name" : "fabric_metadata.spgw.direction"
+              },
+              "dst_mask" : {
+                "type" : "immediate",
+                "name" : "3"
+              },
+              "src1" : {
+                "type" : "immediate",
+                "name" : "1"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name" : "FabricIngress.spgw_ingress.s1u_filter_table",
+      "actions" : [
+        {
+          "name" : "nop",
+          "primitives" : []
+        }
+      ]
+    },
+    {
+      "name" : "tbl_act_8",
+      "actions" : [
+        {
+          "name" : "act_7",
+          "primitives" : [
+            {
+              "name" : "DropPrimitive",
+              "dst" : {
+                "type" : "phv",
+                "name" : "ig_intr_md_for_dprsr.drop_ctl"
+              },
+              "src1" : {
+                "type" : "immediate",
+                "name" : "1"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name" : "tbl_spgw_ingress_gtpu_decap",
+      "actions" : [
+        {
+          "name" : "FabricIngress.spgw_ingress.gtpu_decap",
+          "primitives" : [
+            {
+              "name" : "RemoveHeaderPrimitive",
+              "dst" : {
+                "type" : "header",
+                "name" : "hdr.gtpu_ipv4.$valid"
+              }
+            },
+            {
+              "name" : "RemoveHeaderPrimitive",
+              "dst" : {
+                "type" : "header",
+                "name" : "hdr.gtpu_udp.$valid"
+              }
+            },
+            {
+              "name" : "RemoveHeaderPrimitive",
+              "dst" : {
+                "type" : "header",
+                "name" : "hdr.gtpu.$valid"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name" : "FabricIngress.spgw_ingress.dl_sess_lookup",
+      "actions" : [
+        {
+          "name" : "FabricIngress.spgw_ingress.set_dl_sess_info",
+          "primitives" : [
+            {
+              "name" : "CountPrimitive",
+              "dst" : {
+                "type" : "counter",
+                "name" : "FabricIngress.spgw_ingress.ue_counter"
+              }
+            },
+            {
+              "name" : "ModifyFieldPrimitive",
+              "operation" : "set",
+              "dst" : {
+                "type" : "phv",
+                "name" : "fabric_metadata.spgw.teid"
+              },
+              "dst_mask" : {
+                "type" : "immediate",
+                "name" : "0"
+              },
+              "src1" : {
+                "type" : "action_param",
+                "name" : "teid"
+              }
+            },
+            {
+              "name" : "ModifyFieldPrimitive",
+              "operation" : "set",
+              "dst" : {
+                "type" : "phv",
+                "name" : "fabric_metadata.spgw.s1u_enb_addr"
+              },
+              "dst_mask" : {
+                "type" : "immediate",
+                "name" : "0"
+              },
+              "src1" : {
+                "type" : "action_param",
+                "name" : "s1u_enb_addr"
+              }
+            },
+            {
+              "name" : "ModifyFieldPrimitive",
+              "operation" : "set",
+              "dst" : {
+                "type" : "phv",
+                "name" : "fabric_metadata.spgw.s1u_sgw_addr"
+              },
+              "dst_mask" : {
+                "type" : "immediate",
+                "name" : "0"
+              },
+              "src1" : {
+                "type" : "action_param",
+                "name" : "s1u_sgw_addr"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name" : "tbl_act_10",
+      "actions" : [
+        {
+          "name" : "act_9",
+          "primitives" : [
+            {
+              "name" : "ModifyFieldPrimitive",
+              "operation" : "set",
+              "dst" : {
+                "type" : "phv",
+                "name" : "fabric_metadata.spgw.direction"
+              },
+              "dst_mask" : {
+                "type" : "immediate",
+                "name" : "3"
+              },
+              "src1" : {
+                "type" : "immediate",
+                "name" : "2"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name" : "tbl_act_11",
+      "actions" : [
+        {
+          "name" : "act_10",
+          "primitives" : [
+            {
+              "name" : "ModifyFieldPrimitive",
+              "operation" : "set",
+              "dst" : {
+                "type" : "phv",
+                "name" : "fabric_metadata.spgw.direction"
+              },
+              "dst_mask" : {
+                "type" : "immediate",
+                "name" : "3"
+              },
+              "src1" : {
+                "type" : "immediate",
+                "name" : "0"
+              }
+            },
+            {
+              "name" : "ModifyFieldPrimitive",
+              "operation" : "set",
+              "dst" : {
+                "type" : "phv",
+                "name" : "spgw_ingress_hasReturned"
+              },
+              "dst_mask" : {
+                "type" : "immediate",
+                "name" : "1"
+              },
+              "src1" : {
+                "type" : "immediate",
+                "name" : "1"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name" : "FabricIngress.forwarding.bridging",
+      "actions" : [
+        {
+          "name" : "FabricIngress.forwarding.set_next_id_bridging",
+          "primitives" : [
+            {
+              "name" : "CountPrimitive",
+              "dst" : {
+                "type" : "counter",
+                "name" : "FabricIngress.forwarding.bridging_counter"
+              }
+            },
+            {
+              "name" : "ModifyFieldPrimitive",
+              "operation" : "set",
+              "dst" : {
+                "type" : "phv",
+                "name" : "fabric_metadata.next_id"
+              },
+              "dst_mask" : {
+                "type" : "immediate",
+                "name" : "0"
+              },
+              "src1" : {
+                "type" : "action_param",
+                "name" : "next_id"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name" : "FabricIngress.forwarding.mpls",
+      "actions" : [
+        {
+          "name" : "FabricIngress.forwarding.pop_mpls_and_next",
+          "primitives" : [
+            {
+              "name" : "CountPrimitive",
+              "dst" : {
+                "type" : "counter",
+                "name" : "FabricIngress.forwarding.mpls_counter"
+              }
+            },
+            {
+              "name" : "ModifyFieldPrimitive",
+              "operation" : "set",
+              "dst" : {
+                "type" : "phv",
+                "name" : "fabric_metadata.mpls_label"
+              },
+              "dst_mask" : {
+                "type" : "immediate",
+                "name" : "1048575"
+              },
+              "src1" : {
+                "type" : "immediate",
+                "name" : "0"
+              }
+            },
+            {
+              "name" : "ModifyFieldPrimitive",
+              "operation" : "set",
+              "dst" : {
+                "type" : "phv",
+                "name" : "fabric_metadata.next_id"
+              },
+              "dst_mask" : {
+                "type" : "immediate",
+                "name" : "0"
+              },
+              "src1" : {
+                "type" : "action_param",
+                "name" : "next_id"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name" : "FabricIngress.forwarding.routing_v4",
+      "actions" : [
+        {
+          "name" : "FabricIngress.forwarding.set_next_id_routing_v4",
+          "primitives" : [
+            {
+              "name" : "CountPrimitive",
+              "dst" : {
+                "type" : "counter",
+                "name" : "FabricIngress.forwarding.routing_v4_counter"
+              }
+            },
+            {
+              "name" : "ModifyFieldPrimitive",
+              "operation" : "set",
+              "dst" : {
+                "type" : "phv",
+                "name" : "fabric_metadata.next_id"
+              },
+              "dst_mask" : {
+                "type" : "immediate",
+                "name" : "0"
+              },
+              "src1" : {
+                "type" : "action_param",
+                "name" : "next_id"
+              }
+            }
+          ]
+        },
+        {
+          "name" : "FabricIngress.forwarding.nop_routing_v4",
+          "primitives" : [
+            {
+              "name" : "CountPrimitive",
+              "dst" : {
+                "type" : "counter",
+                "name" : "FabricIngress.forwarding.routing_v4_counter"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name" : "FabricIngress.acl.acl",
+      "actions" : [
+        {
+          "name" : "FabricIngress.acl.set_next_id_acl",
+          "primitives" : [
+            {
+              "name" : "CountPrimitive",
+              "dst" : {
+                "type" : "counter",
+                "name" : "FabricIngress.acl.acl_counter"
+              }
+            },
+            {
+              "name" : "ModifyFieldPrimitive",
+              "operation" : "set",
+              "dst" : {
+                "type" : "phv",
+                "name" : "fabric_metadata.next_id"
+              },
+              "dst_mask" : {
+                "type" : "immediate",
+                "name" : "0"
+              },
+              "src1" : {
+                "type" : "action_param",
+                "name" : "next_id"
+              }
+            }
+          ]
+        },
+        {
+          "name" : "FabricIngress.acl.punt_to_cpu",
+          "primitives" : [
+            {
+              "name" : "CountPrimitive",
+              "dst" : {
+                "type" : "counter",
+                "name" : "FabricIngress.acl.acl_counter"
+              }
+            },
+            {
+              "name" : "ModifyFieldPrimitive",
+              "operation" : "set",
+              "dst" : {
+                "type" : "phv",
+                "name" : "ig_intr_md_for_tm.ucast_egress_port"
+              },
+              "dst_mask" : {
+                "type" : "immediate",
+                "name" : "511"
+              },
+              "src1" : {
+                "type" : "immediate",
+                "name" : "320"
+              }
+            },
+            {
+              "name" : "ModifyFieldPrimitive",
+              "operation" : "set",
+              "dst" : {
+                "type" : "phv",
+                "name" : "fabric_metadata.skip_next"
+              },
+              "dst_mask" : {
+                "type" : "immediate",
+                "name" : "1"
+              },
+              "src1" : {
+                "type" : "immediate",
+                "name" : "1"
+              }
+            }
+          ]
+        },
+        {
+          "name" : "FabricIngress.acl.clone_to_cpu",
+          "primitives" : [
+            {
+              "name" : "CountPrimitive",
+              "dst" : {
+                "type" : "counter",
+                "name" : "FabricIngress.acl.acl_counter"
+              }
+            },
+            {
+              "name" : "ModifyFieldPrimitive",
+              "operation" : "set",
+              "dst" : {
+                "type" : "phv",
+                "name" : "fabric_metadata.clone_to_cpu"
+              },
+              "dst_mask" : {
+                "type" : "immediate",
+                "name" : "1"
+              },
+              "src1" : {
+                "type" : "immediate",
+                "name" : "1"
+              }
+            }
+          ]
+        },
+        {
+          "name" : "FabricIngress.acl.drop",
+          "primitives" : [
+            {
+              "name" : "CountPrimitive",
+              "dst" : {
+                "type" : "counter",
+                "name" : "FabricIngress.acl.acl_counter"
+              }
+            },
+            {
+              "name" : "DropPrimitive",
+              "dst" : {
+                "type" : "phv",
+                "name" : "ig_intr_md_for_dprsr.drop_ctl"
+              },
+              "src1" : {
+                "type" : "immediate",
+                "name" : "1"
+              }
+            },
+            {
+              "name" : "ModifyFieldPrimitive",
+              "operation" : "set",
+              "dst" : {
+                "type" : "phv",
+                "name" : "fabric_metadata.skip_next"
+              },
+              "dst_mask" : {
+                "type" : "immediate",
+                "name" : "1"
+              },
+              "src1" : {
+                "type" : "immediate",
+                "name" : "1"
+              }
+            }
+          ]
+        },
+        {
+          "name" : "FabricIngress.acl.nop_acl",
+          "primitives" : [
+            {
+              "name" : "CountPrimitive",
+              "dst" : {
+                "type" : "counter",
+                "name" : "FabricIngress.acl.acl_counter"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name" : "tbl_act_12",
+      "actions" : [
+        {
+          "name" : "act_12",
+          "primitives" : [
+            {
+              "name" : "ModifyFieldPrimitive",
+              "operation" : "set",
+              "dst" : {
+                "type" : "phv",
+                "name" : "fabric_metadata.spgw.ipv4_len"
+              },
+              "dst_mask" : {
+                "type" : "immediate",
+                "name" : "65535"
+              },
+              "src1" : {
+                "type" : "phv",
+                "name" : "hdr.ipv4.total_len"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name" : "FabricIngress.next.xconnect",
+      "actions" : [
+        {
+          "name" : "FabricIngress.next.output_xconnect",
+          "primitives" : [
+            {
+              "name" : "CountPrimitive",
+              "dst" : {
+                "type" : "counter",
+                "name" : "FabricIngress.next.xconnect_counter"
+              }
+            },
+            {
+              "name" : "ModifyFieldPrimitive",
+              "operation" : "set",
+              "dst" : {
+                "type" : "phv",
+                "name" : "ig_intr_md_for_tm.ucast_egress_port"
+              },
+              "dst_mask" : {
+                "type" : "immediate",
+                "name" : "511"
+              },
+              "src1" : {
+                "type" : "action_param",
+                "name" : "port_num"
+              }
+            }
+          ]
+        },
+        {
+          "name" : "FabricIngress.next.set_next_id_xconnect",
+          "primitives" : [
+            {
+              "name" : "CountPrimitive",
+              "dst" : {
+                "type" : "counter",
+                "name" : "FabricIngress.next.xconnect_counter"
+              }
+            },
+            {
+              "name" : "ModifyFieldPrimitive",
+              "operation" : "set",
+              "dst" : {
+                "type" : "phv",
+                "name" : "fabric_metadata.next_id"
+              },
+              "dst_mask" : {
+                "type" : "immediate",
+                "name" : "0"
+              },
+              "src1" : {
+                "type" : "action_param",
+                "name" : "next_id"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name" : "FabricIngress.next.next_vlan",
+      "actions" : [
+        {
+          "name" : "FabricIngress.next.set_vlan",
+          "primitives" : [
+            {
+              "name" : "CountPrimitive",
+              "dst" : {
+                "type" : "counter",
+                "name" : "FabricIngress.next.next_vlan_counter"
+              }
+            },
+            {
+              "name" : "ModifyFieldPrimitive",
+              "operation" : "set",
+              "dst" : {
+                "type" : "phv",
+                "name" : "fabric_metadata.vlan_id"
+              },
+              "dst_mask" : {
+                "type" : "immediate",
+                "name" : "4095"
+              },
+              "src1" : {
+                "type" : "action_param",
+                "name" : "vlan_id"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name" : "FabricIngress.next.multicast",
+      "actions" : [
+        {
+          "name" : "FabricIngress.next.set_mcast_group_id",
+          "primitives" : [
+            {
+              "name" : "CountPrimitive",
+              "dst" : {
+                "type" : "counter",
+                "name" : "FabricIngress.next.multicast_counter"
+              }
+            },
+            {
+              "name" : "ModifyFieldPrimitive",
+              "operation" : "set",
+              "dst" : {
+                "type" : "phv",
+                "name" : "ig_intr_md_for_tm.mcast_grp_a"
+              },
+              "dst_mask" : {
+                "type" : "immediate",
+                "name" : "65535"
+              },
+              "src1" : {
+                "type" : "action_param",
+                "name" : "group_id"
+              }
+            },
+            {
+              "name" : "ModifyFieldPrimitive",
+              "operation" : "set",
+              "dst" : {
+                "type" : "phv",
+                "name" : "fabric_metadata.is_multicast"
+              },
+              "dst_mask" : {
+                "type" : "immediate",
+                "name" : "1"
+              },
+              "src1" : {
+                "type" : "immediate",
+                "name" : "1"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name" : "FabricIngress.next.hashed",
+      "actions" : [
+        {
+          "name" : "FabricIngress.next.output_hashed",
+          "primitives" : [
+            {
+              "name" : "CountPrimitive",
+              "dst" : {
+                "type" : "counter",
+                "name" : "FabricIngress.next.hashed_counter"
+              }
+            },
+            {
+              "name" : "ModifyFieldPrimitive",
+              "operation" : "set",
+              "dst" : {
+                "type" : "phv",
+                "name" : "ig_intr_md_for_tm.ucast_egress_port"
+              },
+              "dst_mask" : {
+                "type" : "immediate",
+                "name" : "511"
+              },
+              "src1" : {
+                "type" : "action_param",
+                "name" : "port_num"
+              }
+            }
+          ]
+        },
+        {
+          "name" : "FabricIngress.next.routing_hashed",
+          "primitives" : [
+            {
+              "name" : "CountPrimitive",
+              "dst" : {
+                "type" : "counter",
+                "name" : "FabricIngress.next.hashed_counter"
+              }
+            },
+            {
+              "name" : "ModifyFieldPrimitive",
+              "operation" : "set",
+              "dst" : {
+                "type" : "phv",
+                "name" : "hdr.ethernet.src_addr"
+              },
+              "dst_mask" : {
+                "type" : "immediate",
+                "name" : "65535"
+              },
+              "src1" : {
+                "type" : "action_param",
+                "name" : "smac"
+              }
+            },
+            {
+              "name" : "ModifyFieldPrimitive",
+              "operation" : "set",
+              "dst" : {
+                "type" : "phv",
+                "name" : "hdr.ethernet.dst_addr"
+              },
+              "dst_mask" : {
+                "type" : "immediate",
+                "name" : "65535"
+              },
+              "src1" : {
+                "type" : "action_param",
+                "name" : "dmac"
+              }
+            },
+            {
+              "name" : "ModifyFieldPrimitive",
+              "operation" : "set",
+              "dst" : {
+                "type" : "phv",
+                "name" : "ig_intr_md_for_tm.ucast_egress_port"
+              },
+              "dst_mask" : {
+                "type" : "immediate",
+                "name" : "511"
+              },
+              "src1" : {
+                "type" : "action_param",
+                "name" : "port_num"
+              }
+            }
+          ]
+        },
+        {
+          "name" : "FabricIngress.next.mpls_routing_hashed",
+          "primitives" : [
+            {
+              "name" : "CountPrimitive",
+              "dst" : {
+                "type" : "counter",
+                "name" : "FabricIngress.next.hashed_counter"
+              }
+            },
+            {
+              "name" : "ModifyFieldPrimitive",
+              "operation" : "set",
+              "dst" : {
+                "type" : "phv",
+                "name" : "fabric_metadata.mpls_label"
+              },
+              "dst_mask" : {
+                "type" : "immediate",
+                "name" : "1048575"
+              },
+              "src1" : {
+                "type" : "action_param",
+                "name" : "label"
+              }
+            },
+            {
+              "name" : "ModifyFieldPrimitive",
+              "operation" : "set",
+              "dst" : {
+                "type" : "phv",
+                "name" : "hdr.ethernet.src_addr"
+              },
+              "dst_mask" : {
+                "type" : "immediate",
+                "name" : "65535"
+              },
+              "src1" : {
+                "type" : "action_param",
+                "name" : "smac"
+              }
+            },
+            {
+              "name" : "ModifyFieldPrimitive",
+              "operation" : "set",
+              "dst" : {
+                "type" : "phv",
+                "name" : "hdr.ethernet.dst_addr"
+              },
+              "dst_mask" : {
+                "type" : "immediate",
+                "name" : "65535"
+              },
+              "src1" : {
+                "type" : "action_param",
+                "name" : "dmac"
+              }
+            },
+            {
+              "name" : "ModifyFieldPrimitive",
+              "operation" : "set",
+              "dst" : {
+                "type" : "phv",
+                "name" : "ig_intr_md_for_tm.ucast_egress_port"
+              },
+              "dst_mask" : {
+                "type" : "immediate",
+                "name" : "511"
+              },
+              "src1" : {
+                "type" : "action_param",
+                "name" : "port_num"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name" : "tbl_act_14",
+      "actions" : [
+        {
+          "name" : "act_15",
+          "primitives" : [
+            {
+              "name" : "ModifyFieldPrimitive",
+              "operation" : "set",
+              "dst" : {
+                "type" : "phv",
+                "name" : "hasExited_0"
+              },
+              "dst_mask" : {
+                "type" : "immediate",
+                "name" : "1"
+              },
+              "src1" : {
+                "type" : "immediate",
+                "name" : "0"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name" : "tbl_act_15",
+      "actions" : [
+        {
+          "name" : "act_14",
+          "primitives" : [
+            {
+              "name" : "ModifyFieldPrimitive",
+              "operation" : "set",
+              "dst" : {
+                "type" : "phv",
+                "name" : "hasExited_0"
+              },
+              "dst_mask" : {
+                "type" : "immediate",
+                "name" : "1"
+              },
+              "src1" : {
+                "type" : "immediate",
+                "name" : "1"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name" : "tbl_act_17",
+      "actions" : [
+        {
+          "name" : "act_17",
+          "primitives" : [
+            {
+              "name" : "AddHeaderPrimitive",
+              "dst" : {
+                "type" : "header",
+                "name" : "hdr.packet_in.$valid"
+              }
+            },
+            {
+              "name" : "ModifyFieldPrimitive",
+              "operation" : "set",
+              "dst" : {
+                "type" : "phv",
+                "name" : "hdr.packet_in.ingress_port"
+              },
+              "dst_mask" : {
+                "type" : "immediate",
+                "name" : "511"
+              },
+              "src1" : {
+                "type" : "phv",
+                "name" : "ig_intr_md.ingress_port"
+              }
+            },
+            {
+              "name" : "ModifyFieldPrimitive",
+              "operation" : "set",
+              "dst" : {
+                "type" : "phv",
+                "name" : "hasExited_0"
+              },
+              "dst_mask" : {
+                "type" : "immediate",
+                "name" : "1"
+              },
+              "src1" : {
+                "type" : "immediate",
+                "name" : "1"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name" : "tbl_act_16",
+      "actions" : [
+        {
+          "name" : "act_16",
+          "primitives" : [
+            {
+              "name" : "DropPrimitive",
+              "dst" : {
+                "type" : "phv",
+                "name" : "eg_intr_md_for_dprsr.drop_ctl"
+              },
+              "src1" : {
+                "type" : "immediate",
+                "name" : "1"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name" : "tbl_egress_next_set_mpls",
+      "actions" : [
+        {
+          "name" : "FabricEgress.egress_next.set_mpls",
+          "primitives" : [
+            {
+              "name" : "AddHeaderPrimitive",
+              "dst" : {
+                "type" : "header",
+                "name" : "hdr.mpls.$valid"
+              }
+            },
+            {
+              "name" : "ModifyFieldPrimitive",
+              "operation" : "set",
+              "dst" : {
+                "type" : "phv",
+                "name" : "hdr.mpls.label"
+              },
+              "dst_mask" : {
+                "type" : "immediate",
+                "name" : "1048575"
+              },
+              "src1" : {
+                "type" : "phv",
+                "name" : "fabric_metadata.mpls_label"
+              }
+            },
+            {
+              "name" : "ModifyFieldPrimitive",
+              "operation" : "set",
+              "dst" : {
+                "type" : "phv",
+                "name" : "hdr.mpls.tc"
+              },
+              "dst_mask" : {
+                "type" : "immediate",
+                "name" : "7"
+              },
+              "src1" : {
+                "type" : "immediate",
+                "name" : "0"
+              }
+            },
+            {
+              "name" : "ModifyFieldPrimitive",
+              "operation" : "set",
+              "dst" : {
+                "type" : "phv",
+                "name" : "hdr.mpls.bos"
+              },
+              "dst_mask" : {
+                "type" : "immediate",
+                "name" : "1"
+              },
+              "src1" : {
+                "type" : "immediate",
+                "name" : "1"
+              }
+            },
+            {
+              "name" : "ModifyFieldPrimitive",
+              "operation" : "set",
+              "dst" : {
+                "type" : "phv",
+                "name" : "hdr.mpls.ttl"
+              },
+              "dst_mask" : {
+                "type" : "immediate",
+                "name" : "255"
+              },
+              "src1" : {
+                "type" : "phv",
+                "name" : "fabric_metadata.mpls_ttl"
+              }
+            },
+            {
+              "name" : "ModifyFieldPrimitive",
+              "operation" : "set",
+              "dst" : {
+                "type" : "phv",
+                "name" : "fabric_metadata.eth_type"
+              },
+              "dst_mask" : {
+                "type" : "immediate",
+                "name" : "65535"
+              },
+              "src1" : {
+                "type" : "immediate",
+                "name" : "34887"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name" : "tbl_egress_next_pop_mpls_if_present",
+      "actions" : [
+        {
+          "name" : "FabricEgress.egress_next.pop_mpls_if_present",
+          "primitives" : [
+            {
+              "name" : "RemoveHeaderPrimitive",
+              "dst" : {
+                "type" : "header",
+                "name" : "hdr.mpls.$valid"
+              }
+            },
+            {
+              "name" : "ModifyFieldPrimitive",
+              "operation" : "set",
+              "dst" : {
+                "type" : "phv",
+                "name" : "fabric_metadata.eth_type"
+              },
+              "dst_mask" : {
+                "type" : "immediate",
+                "name" : "65535"
+              },
+              "src1" : {
+                "type" : "phv",
+                "name" : "fabric_metadata.ip_eth_type"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name" : "tbl_act_18",
+      "actions" : [
+        {
+          "name" : "act_18",
+          "primitives" : [
+            {
+              "name" : "DropPrimitive",
+              "dst" : {
+                "type" : "phv",
+                "name" : "eg_intr_md_for_dprsr.drop_ctl"
+              },
+              "src1" : {
+                "type" : "immediate",
+                "name" : "1"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name" : "tbl_act_19",
+      "actions" : [
+        {
+          "name" : "act_20",
+          "primitives" : [
+            {
+              "name" : "DirectAluPrimitive",
+              "operation" : "add",
+              "dst" : {
+                "type" : "phv",
+                "name" : "hdr.mpls.ttl"
+              },
+              "dst_mask" : {
+                "type" : "immediate",
+                "name" : "255"
+              },
+              "src1" : {
+                "type" : "phv",
+                "name" : "hdr.mpls.ttl"
+              },
+              "src2" : {
+                "type" : "immediate",
+                "name" : "255"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name" : "tbl_act_20",
+      "actions" : [
+        {
+          "name" : "act_19",
+          "primitives" : [
+            {
+              "name" : "DropPrimitive",
+              "dst" : {
+                "type" : "phv",
+                "name" : "eg_intr_md_for_dprsr.drop_ctl"
+              },
+              "src1" : {
+                "type" : "immediate",
+                "name" : "1"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name" : "tbl_act_21",
+      "actions" : [
+        {
+          "name" : "act_22",
+          "primitives" : [
+            {
+              "name" : "DirectAluPrimitive",
+              "operation" : "add",
+              "dst" : {
+                "type" : "phv",
+                "name" : "hdr.ipv4.ttl"
+              },
+              "dst_mask" : {
+                "type" : "immediate",
+                "name" : "255"
+              },
+              "src1" : {
+                "type" : "phv",
+                "name" : "hdr.ipv4.ttl"
+              },
+              "src2" : {
+                "type" : "immediate",
+                "name" : "255"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name" : "tbl_act_22",
+      "actions" : [
+        {
+          "name" : "act_21",
+          "primitives" : [
+            {
+              "name" : "DropPrimitive",
+              "dst" : {
+                "type" : "phv",
+                "name" : "eg_intr_md_for_dprsr.drop_ctl"
+              },
+              "src1" : {
+                "type" : "immediate",
+                "name" : "1"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name" : "tbl_spgw_egress_gtpu_encap",
+      "actions" : [
+        {
+          "name" : "FabricEgress.spgw_egress.gtpu_encap",
+          "primitives" : [
+            {
+              "name" : "AddHeaderPrimitive",
+              "dst" : {
+                "type" : "header",
+                "name" : "hdr.gtpu_ipv4.$valid"
+              }
+            },
+            {
+              "name" : "ModifyFieldPrimitive",
+              "operation" : "set",
+              "dst" : {
+                "type" : "phv",
+                "name" : "hdr.gtpu_ipv4.version"
+              },
+              "dst_mask" : {
+                "type" : "immediate",
+                "name" : "15"
+              },
+              "src1" : {
+                "type" : "immediate",
+                "name" : "4"
+              }
+            },
+            {
+              "name" : "ModifyFieldPrimitive",
+              "operation" : "set",
+              "dst" : {
+                "type" : "phv",
+                "name" : "hdr.gtpu_ipv4.ihl"
+              },
+              "dst_mask" : {
+                "type" : "immediate",
+                "name" : "15"
+              },
+              "src1" : {
+                "type" : "immediate",
+                "name" : "5"
+              }
+            },
+            {
+              "name" : "ModifyFieldPrimitive",
+              "operation" : "set",
+              "dst" : {
+                "type" : "phv",
+                "name" : "hdr.gtpu_ipv4.dscp"
+              },
+              "dst_mask" : {
+                "type" : "immediate",
+                "name" : "63"
+              },
+              "src1" : {
+                "type" : "immediate",
+                "name" : "0"
+              }
+            },
+            {
+              "name" : "ModifyFieldPrimitive",
+              "operation" : "set",
+              "dst" : {
+                "type" : "phv",
+                "name" : "hdr.gtpu_ipv4.ecn"
+              },
+              "dst_mask" : {
+                "type" : "immediate",
+                "name" : "3"
+              },
+              "src1" : {
+                "type" : "immediate",
+                "name" : "0"
+              }
+            },
+            {
+              "name" : "DirectAluPrimitive",
+              "operation" : "add",
+              "dst" : {
+                "type" : "phv",
+                "name" : "hdr.gtpu_ipv4.total_len"
+              },
+              "dst_mask" : {
+                "type" : "immediate",
+                "name" : "65535"
+              },
+              "src1" : {
+                "type" : "phv",
+                "name" : "hdr.ipv4.total_len"
+              },
+              "src2" : {
+                "type" : "immediate",
+                "name" : "36"
+              }
+            },
+            {
+              "name" : "ModifyFieldPrimitive",
+              "operation" : "set",
+              "dst" : {
+                "type" : "phv",
+                "name" : "hdr.gtpu_ipv4.identification"
+              },
+              "dst_mask" : {
+                "type" : "immediate",
+                "name" : "65535"
+              },
+              "src1" : {
+                "type" : "immediate",
+                "name" : "5395"
+              }
+            },
+            {
+              "name" : "ModifyFieldPrimitive",
+              "operation" : "set",
+              "dst" : {
+                "type" : "phv",
+                "name" : "hdr.gtpu_ipv4.flags"
+              },
+              "dst_mask" : {
+                "type" : "immediate",
+                "name" : "7"
+              },
+              "src1" : {
+                "type" : "immediate",
+                "name" : "0"
+              }
+            },
+            {
+              "name" : "ModifyFieldPrimitive",
+              "operation" : "set",
+              "dst" : {
+                "type" : "phv",
+                "name" : "hdr.gtpu_ipv4.frag_offset"
+              },
+              "dst_mask" : {
+                "type" : "immediate",
+                "name" : "8191"
+              },
+              "src1" : {
+                "type" : "immediate",
+                "name" : "0"
+              }
+            },
+            {
+              "name" : "ModifyFieldPrimitive",
+              "operation" : "set",
+              "dst" : {
+                "type" : "phv",
+                "name" : "hdr.gtpu_ipv4.ttl"
+              },
+              "dst_mask" : {
+                "type" : "immediate",
+                "name" : "255"
+              },
+              "src1" : {
+                "type" : "immediate",
+                "name" : "64"
+              }
+            },
+            {
+              "name" : "ModifyFieldPrimitive",
+              "operation" : "set",
+              "dst" : {
+                "type" : "phv",
+                "name" : "hdr.gtpu_ipv4.protocol"
+              },
+              "dst_mask" : {
+                "type" : "immediate",
+                "name" : "255"
+              },
+              "src1" : {
+                "type" : "immediate",
+                "name" : "17"
+              }
+            },
+            {
+              "name" : "ModifyFieldPrimitive",
+              "operation" : "set",
+              "dst" : {
+                "type" : "phv",
+                "name" : "hdr.gtpu_ipv4.dst_addr"
+              },
+              "dst_mask" : {
+                "type" : "immediate",
+                "name" : "0"
+              },
+              "src1" : {
+                "type" : "phv",
+                "name" : "fabric_metadata.spgw.s1u_enb_addr"
+              }
+            },
+            {
+              "name" : "ModifyFieldPrimitive",
+              "operation" : "set",
+              "dst" : {
+                "type" : "phv",
+                "name" : "hdr.gtpu_ipv4.src_addr"
+              },
+              "dst_mask" : {
+                "type" : "immediate",
+                "name" : "0"
+              },
+              "src1" : {
+                "type" : "phv",
+                "name" : "fabric_metadata.spgw.s1u_sgw_addr"
+              }
+            },
+            {
+              "name" : "ModifyFieldPrimitive",
+              "operation" : "set",
+              "dst" : {
+                "type" : "phv",
+                "name" : "hdr.gtpu_ipv4.hdr_checksum"
+              },
+              "dst_mask" : {
+                "type" : "immediate",
+                "name" : "65535"
+              },
+              "src1" : {
+                "type" : "immediate",
+                "name" : "0"
+              }
+            },
+            {
+              "name" : "AddHeaderPrimitive",
+              "dst" : {
+                "type" : "header",
+                "name" : "hdr.gtpu_udp.$valid"
+              }
+            },
+            {
+              "name" : "ModifyFieldPrimitive",
+              "operation" : "set",
+              "dst" : {
+                "type" : "phv",
+                "name" : "hdr.gtpu_udp.sport"
+              },
+              "dst_mask" : {
+                "type" : "immediate",
+                "name" : "65535"
+              },
+              "src1" : {
+                "type" : "immediate",
+                "name" : "2152"
+              }
+            },
+            {
+              "name" : "ModifyFieldPrimitive",
+              "operation" : "set",
+              "dst" : {
+                "type" : "phv",
+                "name" : "hdr.gtpu_udp.dport"
+              },
+              "dst_mask" : {
+                "type" : "immediate",
+                "name" : "65535"
+              },
+              "src1" : {
+                "type" : "immediate",
+                "name" : "2152"
+              }
+            },
+            {
+              "name" : "DirectAluPrimitive",
+              "operation" : "add",
+              "dst" : {
+                "type" : "phv",
+                "name" : "hdr.gtpu_udp.len"
+              },
+              "dst_mask" : {
+                "type" : "immediate",
+                "name" : "65535"
+              },
+              "src1" : {
+                "type" : "phv",
+                "name" : "fabric_metadata.spgw.ipv4_len"
+              },
+              "src2" : {
+                "type" : "immediate",
+                "name" : "16"
+              }
+            },
+            {
+              "name" : "ModifyFieldPrimitive",
+              "operation" : "set",
+              "dst" : {
+                "type" : "phv",
+                "name" : "hdr.gtpu_udp.checksum"
+              },
+              "dst_mask" : {
+                "type" : "immediate",
+                "name" : "65535"
+              },
+              "src1" : {
+                "type" : "immediate",
+                "name" : "0"
+              }
+            },
+            {
+              "name" : "AddHeaderPrimitive",
+              "dst" : {
+                "type" : "header",
+                "name" : "hdr.gtpu.$valid"
+              }
+            },
+            {
+              "name" : "ModifyFieldPrimitive",
+              "operation" : "set",
+              "dst" : {
+                "type" : "phv",
+                "name" : "hdr.gtpu.version"
+              },
+              "dst_mask" : {
+                "type" : "immediate",
+                "name" : "7"
+              },
+              "src1" : {
+                "type" : "immediate",
+                "name" : "1"
+              }
+            },
+            {
+              "name" : "ModifyFieldPrimitive",
+              "operation" : "set",
+              "dst" : {
+                "type" : "phv",
+                "name" : "hdr.gtpu.pt"
+              },
+              "dst_mask" : {
+                "type" : "immediate",
+                "name" : "1"
+              },
+              "src1" : {
+                "type" : "immediate",
+                "name" : "1"
+              }
+            },
+            {
+              "name" : "ModifyFieldPrimitive",
+              "operation" : "set",
+              "dst" : {
+                "type" : "phv",
+                "name" : "hdr.gtpu.spare"
+              },
+              "dst_mask" : {
+                "type" : "immediate",
+                "name" : "1"
+              },
+              "src1" : {
+                "type" : "immediate",
+                "name" : "0"
+              }
+            },
+            {
+              "name" : "ModifyFieldPrimitive",
+              "operation" : "set",
+              "dst" : {
+                "type" : "phv",
+                "name" : "hdr.gtpu.ex_flag"
+              },
+              "dst_mask" : {
+                "type" : "immediate",
+                "name" : "1"
+              },
+              "src1" : {
+                "type" : "immediate",
+                "name" : "0"
+              }
+            },
+            {
+              "name" : "ModifyFieldPrimitive",
+              "operation" : "set",
+              "dst" : {
+                "type" : "phv",
+                "name" : "hdr.gtpu.seq_flag"
+              },
+              "dst_mask" : {
+                "type" : "immediate",
+                "name" : "1"
+              },
+              "src1" : {
+                "type" : "immediate",
+                "name" : "0"
+              }
+            },
+            {
+              "name" : "ModifyFieldPrimitive",
+              "operation" : "set",
+              "dst" : {
+                "type" : "phv",
+                "name" : "hdr.gtpu.npdu_flag"
+              },
+              "dst_mask" : {
+                "type" : "immediate",
+                "name" : "1"
+              },
+              "src1" : {
+                "type" : "immediate",
+                "name" : "0"
+              }
+            },
+            {
+              "name" : "ModifyFieldPrimitive",
+              "operation" : "set",
+              "dst" : {
+                "type" : "phv",
+                "name" : "hdr.gtpu.msgtype"
+              },
+              "dst_mask" : {
+                "type" : "immediate",
+                "name" : "255"
+              },
+              "src1" : {
+                "type" : "immediate",
+                "name" : "255"
+              }
+            },
+            {
+              "name" : "ModifyFieldPrimitive",
+              "operation" : "set",
+              "dst" : {
+                "type" : "phv",
+                "name" : "hdr.gtpu.msglen"
+              },
+              "dst_mask" : {
+                "type" : "immediate",
+                "name" : "65535"
+              },
+              "src1" : {
+                "type" : "phv",
+                "name" : "fabric_metadata.spgw.ipv4_len"
+              }
+            },
+            {
+              "name" : "ModifyFieldPrimitive",
+              "operation" : "set",
+              "dst" : {
+                "type" : "phv",
+                "name" : "hdr.gtpu.teid"
+              },
+              "dst_mask" : {
+                "type" : "immediate",
+                "name" : "0"
+              },
+              "src1" : {
+                "type" : "phv",
+                "name" : "fabric_metadata.spgw.teid"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name" : "FabricEgress.egress_next.egress_vlan",
+      "actions" : [
+        {
+          "name" : "FabricEgress.egress_next.pop_vlan",
+          "primitives" : [
+            {
+              "name" : "CountPrimitive",
+              "dst" : {
+                "type" : "counter",
+                "name" : "FabricEgress.egress_next.egress_vlan_counter"
+              }
+            },
+            {
+              "name" : "ModifyFieldPrimitive",
+              "operation" : "set",
+              "dst" : {
+                "type" : "phv",
+                "name" : "hdr.ethernet.eth_type"
+              },
+              "dst_mask" : {
+                "type" : "immediate",
+                "name" : "65535"
+              },
+              "src1" : {
+                "type" : "phv",
+                "name" : "fabric_metadata.eth_type"
+              }
+            },
+            {
+              "name" : "RemoveHeaderPrimitive",
+              "dst" : {
+                "type" : "header",
+                "name" : "hdr.vlan_tag.$valid"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name" : "tbl_egress_next_push_vlan",
+      "actions" : [
+        {
+          "name" : "FabricEgress.egress_next.push_vlan",
+          "primitives" : [
+            {
+              "name" : "AddHeaderPrimitive",
+              "dst" : {
+                "type" : "header",
+                "name" : "hdr.vlan_tag.$valid"
+              }
+            },
+            {
+              "name" : "ModifyFieldPrimitive",
+              "operation" : "set",
+              "dst" : {
+                "type" : "phv",
+                "name" : "hdr.vlan_tag.cfi"
+              },
+              "dst_mask" : {
+                "type" : "immediate",
+                "name" : "1"
+              },
+              "src1" : {
+                "type" : "phv",
+                "name" : "fabric_metadata.vlan_cfi"
+              }
+            },
+            {
+              "name" : "ModifyFieldPrimitive",
+              "operation" : "set",
+              "dst" : {
+                "type" : "phv",
+                "name" : "hdr.vlan_tag.pri"
+              },
+              "dst_mask" : {
+                "type" : "immediate",
+                "name" : "7"
+              },
+              "src1" : {
+                "type" : "phv",
+                "name" : "fabric_metadata.vlan_pri"
+              }
+            },
+            {
+              "name" : "ModifyFieldPrimitive",
+              "operation" : "set",
+              "dst" : {
+                "type" : "phv",
+                "name" : "hdr.vlan_tag.eth_type"
+              },
+              "dst_mask" : {
+                "type" : "immediate",
+                "name" : "65535"
+              },
+              "src1" : {
+                "type" : "phv",
+                "name" : "fabric_metadata.eth_type"
+              }
+            },
+            {
+              "name" : "ModifyFieldPrimitive",
+              "operation" : "set",
+              "dst" : {
+                "type" : "phv",
+                "name" : "hdr.vlan_tag.vlan_id"
+              },
+              "dst_mask" : {
+                "type" : "immediate",
+                "name" : "4095"
+              },
+              "src1" : {
+                "type" : "phv",
+                "name" : "fabric_metadata.vlan_id"
+              }
+            },
+            {
+              "name" : "ModifyFieldPrimitive",
+              "operation" : "set",
+              "dst" : {
+                "type" : "phv",
+                "name" : "hdr.ethernet.eth_type"
+              },
+              "dst_mask" : {
+                "type" : "immediate",
+                "name" : "65535"
+              },
+              "src1" : {
+                "type" : "immediate",
+                "name" : "33024"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

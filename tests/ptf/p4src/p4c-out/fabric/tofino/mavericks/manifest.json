@@ -1,0 +1,54 @@
+{
+  "build_date": "Tue Jan 22 21:25:35 2019",
+  "target": "tofino",
+  "compiler_version": "8.5.0",
+  "architectureConfig": {
+    "pipes": [
+      {
+        "pipe": 0,
+        "ingress": {
+          "pipeName": "ingress",
+          "nextControl": [
+            {
+              "pipe": 0,
+              "pipeName": "egress"
+            }
+          ]
+        },
+        "egress": {
+          "pipeName": "egress",
+          "nextControl": []
+        }
+      }
+    ],
+    "name": "64q"
+  },
+  "compile_command": "/bf-sde-8.5.0/install/bin/bf-p4c --arch v1model -g -o /onos/pipelines/fabric/src/main/resources/p4c-out/fabric/tofino/mavericks -I /onos/pipelines/fabric/src/main/resources -DCPU_PORT=320 --p4runtime-file /onos/pipelines/fabric/src/main/resources/p4c-out/fabric/tofino/mavericks/p4info.txt --p4runtime-format text fabric-tofino.p4",
+  "programs": [
+    {
+      "logs": [],
+      "p4i": [
+        {
+          "pipe": 0,
+          "path": "pipe/fabric-tofino.res.json",
+          "type": "resources"
+        }
+      ],
+      "run_id": "978dc5e43e3e6f2f",
+      "contexts": [
+        {
+          "pipe": 0,
+          "path": "pipe/context.json",
+          "pipe_name": "pipe"
+        }
+      ],
+      "p4_version": "p4-16",
+      "graphs": [],
+      "program_name": "fabric-tofino.p4",
+      "binaries": []
+    }
+  ],
+  "schema_version": "1.5.0",
+  "architecture": "v1model",
+  "compilation_succeeded": true
+}

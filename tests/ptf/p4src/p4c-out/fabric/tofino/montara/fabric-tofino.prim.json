@@ -1,0 +1,1426 @@
+{
+  "tables" : [
+    {
+      "name" : "tbl_act",
+      "actions" : [
+        {
+          "name" : "act_0",
+          "primitives" : [
+            {
+              "name" : "ModifyFieldPrimitive",
+              "operation" : "set",
+              "dst" : {
+                "type" : "phv",
+                "name" : "hasExited"
+              },
+              "dst_mask" : {
+                "type" : "immediate",
+                "name" : "1"
+              },
+              "src1" : {
+                "type" : "immediate",
+                "name" : "0"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name" : "tbl_act_0",
+      "actions" : [
+        {
+          "name" : "act",
+          "primitives" : [
+            {
+              "name" : "ModifyFieldPrimitive",
+              "operation" : "set",
+              "dst" : {
+                "type" : "phv",
+                "name" : "ig_intr_md_for_tm.ucast_egress_port"
+              },
+              "dst_mask" : {
+                "type" : "immediate",
+                "name" : "511"
+              },
+              "src1" : {
+                "type" : "phv",
+                "name" : "hdr.packet_out.egress_port"
+              }
+            },
+            {
+              "name" : "ModifyFieldPrimitive",
+              "operation" : "set",
+              "dst" : {
+                "type" : "phv",
+                "name" : "fabric_metadata.is_controller_packet_out"
+              },
+              "dst_mask" : {
+                "type" : "immediate",
+                "name" : "1"
+              },
+              "src1" : {
+                "type" : "immediate",
+                "name" : "1"
+              }
+            },
+            {
+              "name" : "ModifyFieldPrimitive",
+              "operation" : "set",
+              "dst" : {
+                "type" : "phv",
+                "name" : "hasExited"
+              },
+              "dst_mask" : {
+                "type" : "immediate",
+                "name" : "1"
+              },
+              "src1" : {
+                "type" : "immediate",
+                "name" : "1"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name" : "tbl_act_3",
+      "actions" : [
+        {
+          "name" : "act_3",
+          "primitives" : []
+        }
+      ]
+    },
+    {
+      "name" : "tbl_act_1",
+      "actions" : [
+        {
+          "name" : "act_1",
+          "primitives" : [
+            {
+              "name" : "ModifyFieldPrimitive",
+              "operation" : "set",
+              "dst" : {
+                "type" : "phv",
+                "name" : "fabric_metadata.eth_type"
+              },
+              "dst_mask" : {
+                "type" : "immediate",
+                "name" : "65535"
+              },
+              "src1" : {
+                "type" : "phv",
+                "name" : "hdr.vlan_tag.eth_type"
+              }
+            },
+            {
+              "name" : "ModifyFieldPrimitive",
+              "operation" : "set",
+              "dst" : {
+                "type" : "phv",
+                "name" : "fabric_metadata.vlan_id"
+              },
+              "dst_mask" : {
+                "type" : "immediate",
+                "name" : "4095"
+              },
+              "src1" : {
+                "type" : "phv",
+                "name" : "hdr.vlan_tag.vlan_id"
+              }
+            },
+            {
+              "name" : "ModifyFieldPrimitive",
+              "operation" : "set",
+              "dst" : {
+                "type" : "phv",
+                "name" : "fabric_metadata.vlan_pri"
+              },
+              "dst_mask" : {
+                "type" : "immediate",
+                "name" : "7"
+              },
+              "src1" : {
+                "type" : "phv",
+                "name" : "hdr.vlan_tag.pri"
+              }
+            },
+            {
+              "name" : "ModifyFieldPrimitive",
+              "operation" : "set",
+              "dst" : {
+                "type" : "phv",
+                "name" : "fabric_metadata.vlan_cfi"
+              },
+              "dst_mask" : {
+                "type" : "immediate",
+                "name" : "1"
+              },
+              "src1" : {
+                "type" : "phv",
+                "name" : "hdr.vlan_tag.cfi"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name" : "tbl_act_2",
+      "actions" : [
+        {
+          "name" : "act_2",
+          "primitives" : [
+            {
+              "name" : "ModifyFieldPrimitive",
+              "operation" : "set",
+              "dst" : {
+                "type" : "phv",
+                "name" : "fabric_metadata.mpls_ttl"
+              },
+              "dst_mask" : {
+                "type" : "immediate",
+                "name" : "255"
+              },
+              "src1" : {
+                "type" : "immediate",
+                "name" : "65"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name" : "FabricIngress.filtering.ingress_port_vlan",
+      "actions" : [
+        {
+          "name" : "FabricIngress.filtering.deny",
+          "primitives" : [
+            {
+              "name" : "CountPrimitive",
+              "dst" : {
+                "type" : "counter",
+                "name" : "FabricIngress.filtering.ingress_port_vlan_counter"
+              }
+            },
+            {
+              "name" : "ModifyFieldPrimitive",
+              "operation" : "set",
+              "dst" : {
+                "type" : "phv",
+                "name" : "fabric_metadata.skip_forwarding"
+              },
+              "dst_mask" : {
+                "type" : "immediate",
+                "name" : "1"
+              },
+              "src1" : {
+                "type" : "immediate",
+                "name" : "1"
+              }
+            },
+            {
+              "name" : "ModifyFieldPrimitive",
+              "operation" : "set",
+              "dst" : {
+                "type" : "phv",
+                "name" : "fabric_metadata.skip_next"
+              },
+              "dst_mask" : {
+                "type" : "immediate",
+                "name" : "1"
+              },
+              "src1" : {
+                "type" : "immediate",
+                "name" : "1"
+              }
+            }
+          ]
+        },
+        {
+          "name" : "FabricIngress.filtering.permit",
+          "primitives" : [
+            {
+              "name" : "CountPrimitive",
+              "dst" : {
+                "type" : "counter",
+                "name" : "FabricIngress.filtering.ingress_port_vlan_counter"
+              }
+            }
+          ]
+        },
+        {
+          "name" : "FabricIngress.filtering.permit_with_internal_vlan",
+          "primitives" : [
+            {
+              "name" : "CountPrimitive",
+              "dst" : {
+                "type" : "counter",
+                "name" : "FabricIngress.filtering.ingress_port_vlan_counter"
+              }
+            },
+            {
+              "name" : "ModifyFieldPrimitive",
+              "operation" : "set",
+              "dst" : {
+                "type" : "phv",
+                "name" : "fabric_metadata.vlan_id"
+              },
+              "dst_mask" : {
+                "type" : "immediate",
+                "name" : "4095"
+              },
+              "src1" : {
+                "type" : "action_param",
+                "name" : "vlan_id"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name" : "FabricIngress.filtering.fwd_classifier",
+      "actions" : [
+        {
+          "name" : "FabricIngress.filtering.set_forwarding_type",
+          "primitives" : [
+            {
+              "name" : "CountPrimitive",
+              "dst" : {
+                "type" : "counter",
+                "name" : "FabricIngress.filtering.fwd_classifier_counter"
+              }
+            },
+            {
+              "name" : "ModifyFieldPrimitive",
+              "operation" : "set",
+              "dst" : {
+                "type" : "phv",
+                "name" : "fabric_metadata.fwd_type"
+              },
+              "dst_mask" : {
+                "type" : "immediate",
+                "name" : "7"
+              },
+              "src1" : {
+                "type" : "action_param",
+                "name" : "fwd_type"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name" : "FabricIngress.forwarding.bridging",
+      "actions" : [
+        {
+          "name" : "FabricIngress.forwarding.set_next_id_bridging",
+          "primitives" : [
+            {
+              "name" : "CountPrimitive",
+              "dst" : {
+                "type" : "counter",
+                "name" : "FabricIngress.forwarding.bridging_counter"
+              }
+            },
+            {
+              "name" : "ModifyFieldPrimitive",
+              "operation" : "set",
+              "dst" : {
+                "type" : "phv",
+                "name" : "fabric_metadata.next_id"
+              },
+              "dst_mask" : {
+                "type" : "immediate",
+                "name" : "0"
+              },
+              "src1" : {
+                "type" : "action_param",
+                "name" : "next_id"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name" : "FabricIngress.forwarding.mpls",
+      "actions" : [
+        {
+          "name" : "FabricIngress.forwarding.pop_mpls_and_next",
+          "primitives" : [
+            {
+              "name" : "CountPrimitive",
+              "dst" : {
+                "type" : "counter",
+                "name" : "FabricIngress.forwarding.mpls_counter"
+              }
+            },
+            {
+              "name" : "ModifyFieldPrimitive",
+              "operation" : "set",
+              "dst" : {
+                "type" : "phv",
+                "name" : "fabric_metadata.mpls_label"
+              },
+              "dst_mask" : {
+                "type" : "immediate",
+                "name" : "1048575"
+              },
+              "src1" : {
+                "type" : "immediate",
+                "name" : "0"
+              }
+            },
+            {
+              "name" : "ModifyFieldPrimitive",
+              "operation" : "set",
+              "dst" : {
+                "type" : "phv",
+                "name" : "fabric_metadata.next_id"
+              },
+              "dst_mask" : {
+                "type" : "immediate",
+                "name" : "0"
+              },
+              "src1" : {
+                "type" : "action_param",
+                "name" : "next_id"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name" : "FabricIngress.forwarding.routing_v4",
+      "actions" : [
+        {
+          "name" : "FabricIngress.forwarding.set_next_id_routing_v4",
+          "primitives" : [
+            {
+              "name" : "CountPrimitive",
+              "dst" : {
+                "type" : "counter",
+                "name" : "FabricIngress.forwarding.routing_v4_counter"
+              }
+            },
+            {
+              "name" : "ModifyFieldPrimitive",
+              "operation" : "set",
+              "dst" : {
+                "type" : "phv",
+                "name" : "fabric_metadata.next_id"
+              },
+              "dst_mask" : {
+                "type" : "immediate",
+                "name" : "0"
+              },
+              "src1" : {
+                "type" : "action_param",
+                "name" : "next_id"
+              }
+            }
+          ]
+        },
+        {
+          "name" : "FabricIngress.forwarding.nop_routing_v4",
+          "primitives" : [
+            {
+              "name" : "CountPrimitive",
+              "dst" : {
+                "type" : "counter",
+                "name" : "FabricIngress.forwarding.routing_v4_counter"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name" : "FabricIngress.acl.acl",
+      "actions" : [
+        {
+          "name" : "FabricIngress.acl.set_next_id_acl",
+          "primitives" : [
+            {
+              "name" : "CountPrimitive",
+              "dst" : {
+                "type" : "counter",
+                "name" : "FabricIngress.acl.acl_counter"
+              }
+            },
+            {
+              "name" : "ModifyFieldPrimitive",
+              "operation" : "set",
+              "dst" : {
+                "type" : "phv",
+                "name" : "fabric_metadata.next_id"
+              },
+              "dst_mask" : {
+                "type" : "immediate",
+                "name" : "0"
+              },
+              "src1" : {
+                "type" : "action_param",
+                "name" : "next_id"
+              }
+            }
+          ]
+        },
+        {
+          "name" : "FabricIngress.acl.punt_to_cpu",
+          "primitives" : [
+            {
+              "name" : "CountPrimitive",
+              "dst" : {
+                "type" : "counter",
+                "name" : "FabricIngress.acl.acl_counter"
+              }
+            },
+            {
+              "name" : "ModifyFieldPrimitive",
+              "operation" : "set",
+              "dst" : {
+                "type" : "phv",
+                "name" : "ig_intr_md_for_tm.ucast_egress_port"
+              },
+              "dst_mask" : {
+                "type" : "immediate",
+                "name" : "511"
+              },
+              "src1" : {
+                "type" : "immediate",
+                "name" : "192"
+              }
+            },
+            {
+              "name" : "ModifyFieldPrimitive",
+              "operation" : "set",
+              "dst" : {
+                "type" : "phv",
+                "name" : "fabric_metadata.skip_next"
+              },
+              "dst_mask" : {
+                "type" : "immediate",
+                "name" : "1"
+              },
+              "src1" : {
+                "type" : "immediate",
+                "name" : "1"
+              }
+            }
+          ]
+        },
+        {
+          "name" : "FabricIngress.acl.clone_to_cpu",
+          "primitives" : [
+            {
+              "name" : "CountPrimitive",
+              "dst" : {
+                "type" : "counter",
+                "name" : "FabricIngress.acl.acl_counter"
+              }
+            },
+            {
+              "name" : "ModifyFieldPrimitive",
+              "operation" : "set",
+              "dst" : {
+                "type" : "phv",
+                "name" : "fabric_metadata.clone_to_cpu"
+              },
+              "dst_mask" : {
+                "type" : "immediate",
+                "name" : "1"
+              },
+              "src1" : {
+                "type" : "immediate",
+                "name" : "1"
+              }
+            }
+          ]
+        },
+        {
+          "name" : "FabricIngress.acl.drop",
+          "primitives" : [
+            {
+              "name" : "CountPrimitive",
+              "dst" : {
+                "type" : "counter",
+                "name" : "FabricIngress.acl.acl_counter"
+              }
+            },
+            {
+              "name" : "DropPrimitive",
+              "dst" : {
+                "type" : "phv",
+                "name" : "ig_intr_md_for_dprsr.drop_ctl"
+              },
+              "src1" : {
+                "type" : "immediate",
+                "name" : "1"
+              }
+            },
+            {
+              "name" : "ModifyFieldPrimitive",
+              "operation" : "set",
+              "dst" : {
+                "type" : "phv",
+                "name" : "fabric_metadata.skip_next"
+              },
+              "dst_mask" : {
+                "type" : "immediate",
+                "name" : "1"
+              },
+              "src1" : {
+                "type" : "immediate",
+                "name" : "1"
+              }
+            }
+          ]
+        },
+        {
+          "name" : "FabricIngress.acl.nop_acl",
+          "primitives" : [
+            {
+              "name" : "CountPrimitive",
+              "dst" : {
+                "type" : "counter",
+                "name" : "FabricIngress.acl.acl_counter"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name" : "FabricIngress.next.xconnect",
+      "actions" : [
+        {
+          "name" : "FabricIngress.next.output_xconnect",
+          "primitives" : [
+            {
+              "name" : "CountPrimitive",
+              "dst" : {
+                "type" : "counter",
+                "name" : "FabricIngress.next.xconnect_counter"
+              }
+            },
+            {
+              "name" : "ModifyFieldPrimitive",
+              "operation" : "set",
+              "dst" : {
+                "type" : "phv",
+                "name" : "ig_intr_md_for_tm.ucast_egress_port"
+              },
+              "dst_mask" : {
+                "type" : "immediate",
+                "name" : "511"
+              },
+              "src1" : {
+                "type" : "action_param",
+                "name" : "port_num"
+              }
+            }
+          ]
+        },
+        {
+          "name" : "FabricIngress.next.set_next_id_xconnect",
+          "primitives" : [
+            {
+              "name" : "CountPrimitive",
+              "dst" : {
+                "type" : "counter",
+                "name" : "FabricIngress.next.xconnect_counter"
+              }
+            },
+            {
+              "name" : "ModifyFieldPrimitive",
+              "operation" : "set",
+              "dst" : {
+                "type" : "phv",
+                "name" : "fabric_metadata.next_id"
+              },
+              "dst_mask" : {
+                "type" : "immediate",
+                "name" : "0"
+              },
+              "src1" : {
+                "type" : "action_param",
+                "name" : "next_id"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name" : "FabricIngress.next.next_vlan",
+      "actions" : [
+        {
+          "name" : "FabricIngress.next.set_vlan",
+          "primitives" : [
+            {
+              "name" : "CountPrimitive",
+              "dst" : {
+                "type" : "counter",
+                "name" : "FabricIngress.next.next_vlan_counter"
+              }
+            },
+            {
+              "name" : "ModifyFieldPrimitive",
+              "operation" : "set",
+              "dst" : {
+                "type" : "phv",
+                "name" : "fabric_metadata.vlan_id"
+              },
+              "dst_mask" : {
+                "type" : "immediate",
+                "name" : "4095"
+              },
+              "src1" : {
+                "type" : "action_param",
+                "name" : "vlan_id"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name" : "FabricIngress.next.multicast",
+      "actions" : [
+        {
+          "name" : "FabricIngress.next.set_mcast_group_id",
+          "primitives" : [
+            {
+              "name" : "CountPrimitive",
+              "dst" : {
+                "type" : "counter",
+                "name" : "FabricIngress.next.multicast_counter"
+              }
+            },
+            {
+              "name" : "ModifyFieldPrimitive",
+              "operation" : "set",
+              "dst" : {
+                "type" : "phv",
+                "name" : "ig_intr_md_for_tm.mcast_grp_a"
+              },
+              "dst_mask" : {
+                "type" : "immediate",
+                "name" : "65535"
+              },
+              "src1" : {
+                "type" : "action_param",
+                "name" : "group_id"
+              }
+            },
+            {
+              "name" : "ModifyFieldPrimitive",
+              "operation" : "set",
+              "dst" : {
+                "type" : "phv",
+                "name" : "fabric_metadata.is_multicast"
+              },
+              "dst_mask" : {
+                "type" : "immediate",
+                "name" : "1"
+              },
+              "src1" : {
+                "type" : "immediate",
+                "name" : "1"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name" : "FabricIngress.next.hashed",
+      "actions" : [
+        {
+          "name" : "FabricIngress.next.output_hashed",
+          "primitives" : [
+            {
+              "name" : "CountPrimitive",
+              "dst" : {
+                "type" : "counter",
+                "name" : "FabricIngress.next.hashed_counter"
+              }
+            },
+            {
+              "name" : "ModifyFieldPrimitive",
+              "operation" : "set",
+              "dst" : {
+                "type" : "phv",
+                "name" : "ig_intr_md_for_tm.ucast_egress_port"
+              },
+              "dst_mask" : {
+                "type" : "immediate",
+                "name" : "511"
+              },
+              "src1" : {
+                "type" : "action_param",
+                "name" : "port_num"
+              }
+            }
+          ]
+        },
+        {
+          "name" : "FabricIngress.next.routing_hashed",
+          "primitives" : [
+            {
+              "name" : "CountPrimitive",
+              "dst" : {
+                "type" : "counter",
+                "name" : "FabricIngress.next.hashed_counter"
+              }
+            },
+            {
+              "name" : "ModifyFieldPrimitive",
+              "operation" : "set",
+              "dst" : {
+                "type" : "phv",
+                "name" : "hdr.ethernet.src_addr"
+              },
+              "dst_mask" : {
+                "type" : "immediate",
+                "name" : "65535"
+              },
+              "src1" : {
+                "type" : "action_param",
+                "name" : "smac"
+              }
+            },
+            {
+              "name" : "ModifyFieldPrimitive",
+              "operation" : "set",
+              "dst" : {
+                "type" : "phv",
+                "name" : "hdr.ethernet.dst_addr"
+              },
+              "dst_mask" : {
+                "type" : "immediate",
+                "name" : "65535"
+              },
+              "src1" : {
+                "type" : "action_param",
+                "name" : "dmac"
+              }
+            },
+            {
+              "name" : "ModifyFieldPrimitive",
+              "operation" : "set",
+              "dst" : {
+                "type" : "phv",
+                "name" : "ig_intr_md_for_tm.ucast_egress_port"
+              },
+              "dst_mask" : {
+                "type" : "immediate",
+                "name" : "511"
+              },
+              "src1" : {
+                "type" : "action_param",
+                "name" : "port_num"
+              }
+            }
+          ]
+        },
+        {
+          "name" : "FabricIngress.next.mpls_routing_hashed",
+          "primitives" : [
+            {
+              "name" : "CountPrimitive",
+              "dst" : {
+                "type" : "counter",
+                "name" : "FabricIngress.next.hashed_counter"
+              }
+            },
+            {
+              "name" : "ModifyFieldPrimitive",
+              "operation" : "set",
+              "dst" : {
+                "type" : "phv",
+                "name" : "fabric_metadata.mpls_label"
+              },
+              "dst_mask" : {
+                "type" : "immediate",
+                "name" : "1048575"
+              },
+              "src1" : {
+                "type" : "action_param",
+                "name" : "label"
+              }
+            },
+            {
+              "name" : "ModifyFieldPrimitive",
+              "operation" : "set",
+              "dst" : {
+                "type" : "phv",
+                "name" : "hdr.ethernet.src_addr"
+              },
+              "dst_mask" : {
+                "type" : "immediate",
+                "name" : "65535"
+              },
+              "src1" : {
+                "type" : "action_param",
+                "name" : "smac"
+              }
+            },
+            {
+              "name" : "ModifyFieldPrimitive",
+              "operation" : "set",
+              "dst" : {
+                "type" : "phv",
+                "name" : "hdr.ethernet.dst_addr"
+              },
+              "dst_mask" : {
+                "type" : "immediate",
+                "name" : "65535"
+              },
+              "src1" : {
+                "type" : "action_param",
+                "name" : "dmac"
+              }
+            },
+            {
+              "name" : "ModifyFieldPrimitive",
+              "operation" : "set",
+              "dst" : {
+                "type" : "phv",
+                "name" : "ig_intr_md_for_tm.ucast_egress_port"
+              },
+              "dst_mask" : {
+                "type" : "immediate",
+                "name" : "511"
+              },
+              "src1" : {
+                "type" : "action_param",
+                "name" : "port_num"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name" : "tbl_act_4",
+      "actions" : [
+        {
+          "name" : "act_5",
+          "primitives" : [
+            {
+              "name" : "ModifyFieldPrimitive",
+              "operation" : "set",
+              "dst" : {
+                "type" : "phv",
+                "name" : "hasExited_0"
+              },
+              "dst_mask" : {
+                "type" : "immediate",
+                "name" : "1"
+              },
+              "src1" : {
+                "type" : "immediate",
+                "name" : "0"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name" : "tbl_act_5",
+      "actions" : [
+        {
+          "name" : "act_4",
+          "primitives" : [
+            {
+              "name" : "ModifyFieldPrimitive",
+              "operation" : "set",
+              "dst" : {
+                "type" : "phv",
+                "name" : "hasExited_0"
+              },
+              "dst_mask" : {
+                "type" : "immediate",
+                "name" : "1"
+              },
+              "src1" : {
+                "type" : "immediate",
+                "name" : "1"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name" : "tbl_act_7",
+      "actions" : [
+        {
+          "name" : "act_7",
+          "primitives" : [
+            {
+              "name" : "AddHeaderPrimitive",
+              "dst" : {
+                "type" : "header",
+                "name" : "hdr.packet_in.$valid"
+              }
+            },
+            {
+              "name" : "ModifyFieldPrimitive",
+              "operation" : "set",
+              "dst" : {
+                "type" : "phv",
+                "name" : "hdr.packet_in.ingress_port"
+              },
+              "dst_mask" : {
+                "type" : "immediate",
+                "name" : "511"
+              },
+              "src1" : {
+                "type" : "phv",
+                "name" : "ig_intr_md.ingress_port"
+              }
+            },
+            {
+              "name" : "ModifyFieldPrimitive",
+              "operation" : "set",
+              "dst" : {
+                "type" : "phv",
+                "name" : "hasExited_0"
+              },
+              "dst_mask" : {
+                "type" : "immediate",
+                "name" : "1"
+              },
+              "src1" : {
+                "type" : "immediate",
+                "name" : "1"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name" : "tbl_act_6",
+      "actions" : [
+        {
+          "name" : "act_6",
+          "primitives" : [
+            {
+              "name" : "DropPrimitive",
+              "dst" : {
+                "type" : "phv",
+                "name" : "eg_intr_md_for_dprsr.drop_ctl"
+              },
+              "src1" : {
+                "type" : "immediate",
+                "name" : "1"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name" : "tbl_egress_next_set_mpls",
+      "actions" : [
+        {
+          "name" : "FabricEgress.egress_next.set_mpls",
+          "primitives" : [
+            {
+              "name" : "AddHeaderPrimitive",
+              "dst" : {
+                "type" : "header",
+                "name" : "hdr.mpls.$valid"
+              }
+            },
+            {
+              "name" : "ModifyFieldPrimitive",
+              "operation" : "set",
+              "dst" : {
+                "type" : "phv",
+                "name" : "hdr.mpls.label"
+              },
+              "dst_mask" : {
+                "type" : "immediate",
+                "name" : "1048575"
+              },
+              "src1" : {
+                "type" : "phv",
+                "name" : "fabric_metadata.mpls_label"
+              }
+            },
+            {
+              "name" : "ModifyFieldPrimitive",
+              "operation" : "set",
+              "dst" : {
+                "type" : "phv",
+                "name" : "hdr.mpls.tc"
+              },
+              "dst_mask" : {
+                "type" : "immediate",
+                "name" : "7"
+              },
+              "src1" : {
+                "type" : "immediate",
+                "name" : "0"
+              }
+            },
+            {
+              "name" : "ModifyFieldPrimitive",
+              "operation" : "set",
+              "dst" : {
+                "type" : "phv",
+                "name" : "hdr.mpls.bos"
+              },
+              "dst_mask" : {
+                "type" : "immediate",
+                "name" : "1"
+              },
+              "src1" : {
+                "type" : "immediate",
+                "name" : "1"
+              }
+            },
+            {
+              "name" : "ModifyFieldPrimitive",
+              "operation" : "set",
+              "dst" : {
+                "type" : "phv",
+                "name" : "hdr.mpls.ttl"
+              },
+              "dst_mask" : {
+                "type" : "immediate",
+                "name" : "255"
+              },
+              "src1" : {
+                "type" : "phv",
+                "name" : "fabric_metadata.mpls_ttl"
+              }
+            },
+            {
+              "name" : "ModifyFieldPrimitive",
+              "operation" : "set",
+              "dst" : {
+                "type" : "phv",
+                "name" : "fabric_metadata.eth_type"
+              },
+              "dst_mask" : {
+                "type" : "immediate",
+                "name" : "65535"
+              },
+              "src1" : {
+                "type" : "immediate",
+                "name" : "34887"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name" : "tbl_egress_next_pop_mpls_if_present",
+      "actions" : [
+        {
+          "name" : "FabricEgress.egress_next.pop_mpls_if_present",
+          "primitives" : [
+            {
+              "name" : "RemoveHeaderPrimitive",
+              "dst" : {
+                "type" : "header",
+                "name" : "hdr.mpls.$valid"
+              }
+            },
+            {
+              "name" : "ModifyFieldPrimitive",
+              "operation" : "set",
+              "dst" : {
+                "type" : "phv",
+                "name" : "fabric_metadata.eth_type"
+              },
+              "dst_mask" : {
+                "type" : "immediate",
+                "name" : "65535"
+              },
+              "src1" : {
+                "type" : "phv",
+                "name" : "fabric_metadata.ip_eth_type"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name" : "tbl_act_8",
+      "actions" : [
+        {
+          "name" : "act_8",
+          "primitives" : [
+            {
+              "name" : "DropPrimitive",
+              "dst" : {
+                "type" : "phv",
+                "name" : "eg_intr_md_for_dprsr.drop_ctl"
+              },
+              "src1" : {
+                "type" : "immediate",
+                "name" : "1"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name" : "tbl_act_9",
+      "actions" : [
+        {
+          "name" : "act_10",
+          "primitives" : [
+            {
+              "name" : "DirectAluPrimitive",
+              "operation" : "add",
+              "dst" : {
+                "type" : "phv",
+                "name" : "hdr.mpls.ttl"
+              },
+              "dst_mask" : {
+                "type" : "immediate",
+                "name" : "255"
+              },
+              "src1" : {
+                "type" : "phv",
+                "name" : "hdr.mpls.ttl"
+              },
+              "src2" : {
+                "type" : "immediate",
+                "name" : "255"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name" : "tbl_act_10",
+      "actions" : [
+        {
+          "name" : "act_9",
+          "primitives" : [
+            {
+              "name" : "DropPrimitive",
+              "dst" : {
+                "type" : "phv",
+                "name" : "eg_intr_md_for_dprsr.drop_ctl"
+              },
+              "src1" : {
+                "type" : "immediate",
+                "name" : "1"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name" : "tbl_act_11",
+      "actions" : [
+        {
+          "name" : "act_12",
+          "primitives" : [
+            {
+              "name" : "DirectAluPrimitive",
+              "operation" : "add",
+              "dst" : {
+                "type" : "phv",
+                "name" : "hdr.ipv4.ttl"
+              },
+              "dst_mask" : {
+                "type" : "immediate",
+                "name" : "255"
+              },
+              "src1" : {
+                "type" : "phv",
+                "name" : "hdr.ipv4.ttl"
+              },
+              "src2" : {
+                "type" : "immediate",
+                "name" : "255"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name" : "tbl_act_12",
+      "actions" : [
+        {
+          "name" : "act_11",
+          "primitives" : [
+            {
+              "name" : "DropPrimitive",
+              "dst" : {
+                "type" : "phv",
+                "name" : "eg_intr_md_for_dprsr.drop_ctl"
+              },
+              "src1" : {
+                "type" : "immediate",
+                "name" : "1"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name" : "FabricEgress.egress_next.egress_vlan",
+      "actions" : [
+        {
+          "name" : "FabricEgress.egress_next.pop_vlan",
+          "primitives" : [
+            {
+              "name" : "CountPrimitive",
+              "dst" : {
+                "type" : "counter",
+                "name" : "FabricEgress.egress_next.egress_vlan_counter"
+              }
+            },
+            {
+              "name" : "ModifyFieldPrimitive",
+              "operation" : "set",
+              "dst" : {
+                "type" : "phv",
+                "name" : "hdr.ethernet.eth_type"
+              },
+              "dst_mask" : {
+                "type" : "immediate",
+                "name" : "65535"
+              },
+              "src1" : {
+                "type" : "phv",
+                "name" : "fabric_metadata.eth_type"
+              }
+            },
+            {
+              "name" : "RemoveHeaderPrimitive",
+              "dst" : {
+                "type" : "header",
+                "name" : "hdr.vlan_tag.$valid"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name" : "tbl_egress_next_push_vlan",
+      "actions" : [
+        {
+          "name" : "FabricEgress.egress_next.push_vlan",
+          "primitives" : [
+            {
+              "name" : "AddHeaderPrimitive",
+              "dst" : {
+                "type" : "header",
+                "name" : "hdr.vlan_tag.$valid"
+              }
+            },
+            {
+              "name" : "ModifyFieldPrimitive",
+              "operation" : "set",
+              "dst" : {
+                "type" : "phv",
+                "name" : "hdr.vlan_tag.cfi"
+              },
+              "dst_mask" : {
+                "type" : "immediate",
+                "name" : "1"
+              },
+              "src1" : {
+                "type" : "phv",
+                "name" : "fabric_metadata.vlan_cfi"
+              }
+            },
+            {
+              "name" : "ModifyFieldPrimitive",
+              "operation" : "set",
+              "dst" : {
+                "type" : "phv",
+                "name" : "hdr.vlan_tag.pri"
+              },
+              "dst_mask" : {
+                "type" : "immediate",
+                "name" : "7"
+              },
+              "src1" : {
+                "type" : "phv",
+                "name" : "fabric_metadata.vlan_pri"
+              }
+            },
+            {
+              "name" : "ModifyFieldPrimitive",
+              "operation" : "set",
+              "dst" : {
+                "type" : "phv",
+                "name" : "hdr.vlan_tag.eth_type"
+              },
+              "dst_mask" : {
+                "type" : "immediate",
+                "name" : "65535"
+              },
+              "src1" : {
+                "type" : "phv",
+                "name" : "fabric_metadata.eth_type"
+              }
+            },
+            {
+              "name" : "ModifyFieldPrimitive",
+              "operation" : "set",
+              "dst" : {
+                "type" : "phv",
+                "name" : "hdr.vlan_tag.vlan_id"
+              },
+              "dst_mask" : {
+                "type" : "immediate",
+                "name" : "4095"
+              },
+              "src1" : {
+                "type" : "phv",
+                "name" : "fabric_metadata.vlan_id"
+              }
+            },
+            {
+              "name" : "ModifyFieldPrimitive",
+              "operation" : "set",
+              "dst" : {
+                "type" : "phv",
+                "name" : "hdr.ethernet.eth_type"
+              },
+              "dst_mask" : {
+                "type" : "immediate",
+                "name" : "65535"
+              },
+              "src1" : {
+                "type" : "immediate",
+                "name" : "33024"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
